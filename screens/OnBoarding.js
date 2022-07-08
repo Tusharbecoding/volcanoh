@@ -91,7 +91,6 @@ const Slide = ({item}) => {
                   styles.indicator,
                   currentSlideIndex == index && {
                     backgroundColor: "rgba(181, 56, 62, 1)",
-                    
                   },
                 ]}
               />

@@ -8,8 +8,9 @@ import { useState } from 'react';
 
 const SignIn = ({navigation}) => {
 
-    const [text, onChangeText] = React.useState();
-  
+    const [email, onChangeEmail] = React.useState();
+    const [password, onChangePassword] = React.useState();
+
     return (
         <SafeAreaView
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -25,35 +26,79 @@ const SignIn = ({navigation}) => {
             <Image source={require('../assets/image13.png')} style={{resizeMode: 'contain', bottom: '8%', height: 500, left: '15%'}}/>
             <Text
                 style={{fontWeight: '600', bottom: '22%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Sign In</Text>
-            <View>
-            <Icon  name="eye" size={20} color="#000"/>
+            
+            
                 <TextInput
                 style={{
-                    height: 40,
-                    margin: 12,
-                    borderWidth: 1,
+                    height: 45,
+                    bottom: '20%',
+                    borderRadius: 8,
                     padding: 10,
+                    backgroundColor: 'rgba(214, 214, 214, 0.6)',
                     
                 }}
-                placeholder="useless placeholder"
-                onChangeText={onChangeText}
-                value={text}
-                secureTextEntry={true}
+                placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
+                placeholder="Email address"
+                onChangeText={onChangeEmail}
+                value={email}
+                
               />
-              </View>
-
+              <TextInput
+                style={{
+                    height: 45,
+                    bottom: '18.5%',
+                    borderRadius: 8,
+                    padding: 10,
+                    backgroundColor: 'rgba(214, 214, 214, 0.6)',
+                    
+                }}
+                placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
+                placeholder="Password"
+                onChangeText={onChangePassword}
+                value={password}
+                secureTextEntry={true} 
+              />
+            <TouchableOpacity
+            style={{
+                
+                left: '62%',
+                bottom: '17%',
+                
+            }}>
+            <Text
+            style={{
+                fontWeight: 'bold',
+            }}
+            >Forgot your password?</Text>  
+            </TouchableOpacity>
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
                     width: 355,
                     height: 50,
                     alignItems: "center",
                     justifyContent: "center",
-                    bottom: '19%',
+                    bottom: '12%',
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
                     onPress={() => navigation.navigate('Register')}>
-                <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Sign up free</Text>
+                <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Sign in</Text>
 
             </TouchableOpacity>
+            <View
+            style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                bottom: '20%',
+            }}>
+                <Text>Don't have account?</Text>
+                <TouchableOpacity
+                onPress={() => navigation.navigate('Register')}>
+                    <Text
+                    style={{
+                        color: 'blue',
+                    }}> Sign up</Text>
+                </TouchableOpacity>
+            </View>
             </ScrollView>
             </SafeAreaView>
     );

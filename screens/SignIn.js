@@ -61,7 +61,7 @@ const SignIn = ({navigation}) => {
             <TouchableOpacity
             style={{
                 
-                left: '62%',
+                left: '59%',
                 bottom: '17%',
                 
             }}>
@@ -95,7 +95,7 @@ const SignIn = ({navigation}) => {
                 onPress={() => navigation.navigate('Register')}>
                     <Text
                     style={{
-                        color: 'blue',
+                        color: 'rgba(181, 56, 62, 1)',
                     }}> Sign up</Text>
                 </TouchableOpacity>
             </View>

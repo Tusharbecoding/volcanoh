@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimentions } from 'react-native';
+import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -7,7 +7,8 @@ import { useState } from 'react';
 
 
 const ForgotPassword = ({navigation}) => {
-
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
     const [email, onChangeEmail] = React.useState();
     
 
@@ -23,7 +24,7 @@ const ForgotPassword = ({navigation}) => {
                 height: 40,
                 top: '5%'
               }} />
-            <Image source={require('../assets/image12.png')} style={{resizeMode: 'contain', bottom: '8%', height: 500, left: '7%'}}/>
+            <Image source={require('../assets/image12.png')} style={{resizeMode: 'contain', bottom: '8%', height: windowHeight * 0.75, left: '7%'}}/>
             <Text
                 style={{fontWeight: '600', bottom: '25%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Forgot Password</Text>
             <Text
@@ -32,6 +33,7 @@ const ForgotPassword = ({navigation}) => {
                 fontSize: 15,
                 lineHeight: 24,
                 color: "rgba(16, 16, 16, 0.8)",
+                
             }}>Enter your emal which you used to registrate.
             We’ll send you an email with your username and a link to reset your password.</Text>    
             

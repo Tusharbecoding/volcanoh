@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
 
 
-const ResetPassword = ({navigation}) => {
+const TotalError = ({navigation}) => {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
     const [email, onChangeEmail] = React.useState();
@@ -26,7 +26,7 @@ const ResetPassword = ({navigation}) => {
               }} />
             <Image source={require('../assets/image12.png')} style={{resizeMode: 'cover',bottom: '6%', height: windowHeight * 0.8, left: '7%'}}/>
             <Text
-                style={{fontWeight: '600', bottom: '20%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Forgot Password</Text>
+                style={{fontWeight: '600', bottom: '20%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Something went wrong</Text>
             <Text
             style={{
                 bottom: '18%',
@@ -34,7 +34,7 @@ const ResetPassword = ({navigation}) => {
                 lineHeight: 24,
                 color: "rgba(16, 16, 16, 0.8)",
                 width: windowWidth * 0.9,
-            }}>Thank you! Please check your email to find instructions how to reset a password.</Text>    
+            }}>We're sorry</Text>    
             
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
@@ -53,11 +53,10 @@ const ResetPassword = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: '23%',
+                bottom: '21%',
             }}>
                 <Text>Do you need help?</Text>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('TotalError')}
                 >
                     <Text
                     style={{
@@ -71,4 +70,4 @@ const ResetPassword = ({navigation}) => {
     );
 };
 
-export default ResetPassword;
+export default TotalError;

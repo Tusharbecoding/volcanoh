@@ -32,17 +32,16 @@ const Login = ({navigation}) => {
                 <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Sign up free</Text>
 
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+            style={{bottom: '17.7%'}}>
               <Image source={require('../assets/ButtonGoogle.png')} style={{
-                bottom: '230%',
+                
                 
               }}></Image>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <Image source={require('../assets/ButtonApple.png')} style={{
-                bottom: '210%',
-                
-              }}></Image>
+            <TouchableOpacity
+            style={{bottom: '16.4%'}}>
+              <Image source={require('../assets/ButtonApple.png')}></Image>
             </TouchableOpacity>
             <TouchableOpacity
             onPress={() => navigation.navigate('SignIn')}>

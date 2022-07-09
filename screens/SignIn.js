@@ -79,6 +79,7 @@ const SignIn = ({navigation}) => {
                     justifyContent: "center",
                     bottom: '12%',
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
+                    onPress={() => navigation.navigate('HomeScreen')}
                     >
                 <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Sign in</Text>
 

@@ -6,10 +6,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
 
 
-const SignIn = ({navigation}) => {
+const ForgotPassword = ({navigation}) => {
 
     const [email, onChangeEmail] = React.useState();
-    const [password, onChangePassword] = React.useState();
+    
 
     return (
         <SafeAreaView
@@ -23,9 +23,17 @@ const SignIn = ({navigation}) => {
                 height: 40,
                 top: '5%'
               }} />
-            <Image source={require('../assets/image13.png')} style={{resizeMode: 'contain', bottom: '8%', height: 500, left: '15%'}}/>
+            <Image source={require('../assets/image12.png')} style={{resizeMode: 'contain', bottom: '8%', height: 500, left: '7%'}}/>
             <Text
-                style={{fontWeight: '600', bottom: '22%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Sign In</Text>
+                style={{fontWeight: '600', bottom: '25%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Forgot Password</Text>
+            <Text
+            style={{
+                bottom: '22%',
+                fontSize: 15,
+                lineHeight: 24,
+                color: "rgba(16, 16, 16, 0.8)",
+            }}>Enter your emal which you used to registrate.
+            We’ll send you an email with your username and a link to reset your password.</Text>    
             
             
                 <TextInput
@@ -43,44 +51,19 @@ const SignIn = ({navigation}) => {
                 value={email}
                 
               />
-              <TextInput
-                style={{
-                    height: 45,
-                    bottom: '18.5%',
-                    borderRadius: 8,
-                    padding: 10,
-                    backgroundColor: 'rgba(214, 214, 214, 0.6)',
-                    
-                }}
-                placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
-                placeholder="Password"
-                onChangeText={onChangePassword}
-                value={password}
-                secureTextEntry={true} 
-              />
-            <TouchableOpacity
-            style={{
-                left: '59%',
-                bottom: '17%',
-            }}
-            onPress={() => navigation.navigate('ForgotPassword')}
-            >
-            <Text
-            style={{
-                fontWeight: 'bold',
-            }}
-            >Forgot your password?</Text>  
-            </TouchableOpacity>
+              
+            
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
-                    width: 355,
+                    width: 380,
                     height: 50,
                     alignItems: "center",
                     justifyContent: "center",
-                    bottom: '12%',
+                    bottom: '15%',
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
+                    onPress={() => navigation.navigate('ResetPassword')}
                     >
-                <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Sign in</Text>
+                <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Send email</Text>
 
             </TouchableOpacity>
             <View
@@ -88,20 +71,21 @@ const SignIn = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: '20%',
+                bottom: '25%',
             }}>
-                <Text>Don't have account?</Text>
+                <Text>Do you need help?</Text>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('Register')}>
+                >
                     <Text
                     style={{
                         color: 'rgba(181, 56, 62, 1)',
-                    }}> Sign up</Text>
+                    }}> Contact support</Text>
                 </TouchableOpacity>
             </View>
+            
             </ScrollView>
             </SafeAreaView>
     );
 };
 
-export default SignIn;
+export default ForgotPassword;

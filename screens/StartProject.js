@@ -1,15 +1,59 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity } from 'react-native'
+import Octicons from 'react-native-vector-icons/Octicons';
 
 const StartProject = () => {
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     <Image source={require('../assets/logo.png')} style={{
         alignSelf: 'center',
-        width: 125,
-        height: 40,
-        bottom: '35%',
+        width: 138,
+        height: 45,
+        bottom: windowHeight * -0.1,
       }} />
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, bottom: windowHeight * -0.05}} />
+
+      <TouchableOpacity 
+      style={{
+        bottom: windowWidth * -0.145,
+        right: windowWidth * 0.27,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: windowWidth * 0.2,  
+        paddingRight: windowWidth * 0.27,
+        borderTopWidth:0,
+        borderRightWidth:0,
+        borderWidth: 1,
+      }}>
+        <Text style={{color: 'black',}}>Left</Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+      style={{
+        bottom: windowHeight * -0.03 ,
+        left: windowWidth * 0.27,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: windowWidth * 0.27,  
+        paddingRight: windowWidth * 0.2,
+        borderTopWidth:0,
+        borderLeftWidth:0,
+        borderWidth: 0,
+      }}>
+        <Text style={{color: 'rgba(174, 174, 178, 1)',}}>Right</Text>
+      </TouchableOpacity>
+      <Image source={require('../assets/backgroundproject.png')} style={{top: windowHeight * 0.07}}></Image>
+      <Text
+      style={{
+        fontWeight: 'bold',
+        width: 90,
+        zIndex: 1,
+        bottom: windowHeight * 0.3,
+      }}>Tap to create a new banner</Text>
+      <TouchableOpacity style={{ zIndex: 1,
+      bottom: windowHeight * 0.28,}}>
+      <Image source={require('../assets/Group9.png')}></Image></TouchableOpacity>
     </SafeAreaView>
     
   )

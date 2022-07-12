@@ -12,6 +12,7 @@ import Register from './Register';
 import Templates from './Templates';
 import DailyIdeas from './DailyIdeas';
 
+
 const Tab = createBottomTabNavigator();
 
 

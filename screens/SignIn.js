@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimentions } from 'react-native';
+import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -10,6 +10,8 @@ const SignIn = ({navigation}) => {
 
     const [email, onChangeEmail] = React.useState();
     const [password, onChangePassword] = React.useState();
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
 
     return (
         <SafeAreaView
@@ -17,6 +19,13 @@ const SignIn = ({navigation}) => {
             <ScrollView 
             style={{flex: 1}}
             showsVerticalScrollIndicator={false}>
+            <TouchableOpacity style={{
+                top: windowHeight * 0.095,
+
+            }}
+            onPress={() => navigation.navigate('Login')}>
+                <Image source={require('../assets/arrow.png')} style={{width: 20, height: 16}} />
+            </TouchableOpacity> 
             <Image source={require('../assets/logo.png')} style={{
                 alignSelf: 'center',
                 width: 125,
@@ -25,13 +34,13 @@ const SignIn = ({navigation}) => {
               }} />
             <Image source={require('../assets/image13.png')} style={{resizeMode: 'contain', bottom: '8%', height: 500, left: '15%'}}/>
             <Text
-                style={{fontWeight: '600', bottom: '22%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Sign In</Text>
+                style={{fontWeight: '600', bottom: windowHeight * 0.29, fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Sign In</Text>
             
             
                 <TextInput
                 style={{
                     height: 45,
-                    bottom: '20%',
+                    bottom: windowHeight * 0.26,
                     borderRadius: 8,
                     padding: 10,
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
@@ -46,7 +55,7 @@ const SignIn = ({navigation}) => {
               <TextInput
                 style={{
                     height: 45,
-                    bottom: '18.5%',
+                    bottom: windowHeight * 0.248,
                     borderRadius: 8,
                     padding: 10,
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
@@ -60,8 +69,8 @@ const SignIn = ({navigation}) => {
               />
             <TouchableOpacity
             style={{
-                left: '59%',
-                bottom: '17%',
+                left: windowWidth * 0.5,
+                bottom: windowHeight * 0.24,
             }}
             onPress={() => navigation.navigate('ForgotPassword')}
             >
@@ -77,7 +86,7 @@ const SignIn = ({navigation}) => {
                     height: 50,
                     alignItems: "center",
                     justifyContent: "center",
-                    bottom: '12%',
+                    bottom: windowHeight * 0.17,
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
                     onPress={() => navigation.navigate('HomeScreen')}
                     >
@@ -89,7 +98,7 @@ const SignIn = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: '20%',
+                bottom: windowHeight * 0.15,
             }}>
                 <Text>Don't have account?</Text>
                 <TouchableOpacity

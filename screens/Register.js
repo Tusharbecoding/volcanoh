@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimentions } from 'react-native';
+import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -11,6 +11,8 @@ const Register = ({navigation}) => {
     const [email, onChangeEmail] = React.useState();
     const [password, onChangePassword] = React.useState();
     const [name, onChangeName] = React.useState();
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
 
     return (
         <SafeAreaView
@@ -18,6 +20,13 @@ const Register = ({navigation}) => {
             <ScrollView 
             style={{flex: 1}}
             showsVerticalScrollIndicator={false}>
+            <TouchableOpacity style={{
+                top: windowHeight * 0.095,
+
+            }}
+            onPress={() => navigation.navigate('Login')}>
+                <Image source={require('../assets/arrow.png')} style={{width: 20, height: 16}} />
+            </TouchableOpacity>
             <Image source={require('../assets/logo.png')} style={{
                 alignSelf: 'center',
                 width: 125,
@@ -80,7 +89,7 @@ const Register = ({navigation}) => {
                     height: 50,
                     alignItems: "center",
                     justifyContent: "center",
-                    bottom: '15%',
+                    bottom: windowHeight * 0.19,
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
                     onPress={() => navigation.navigate('Register')}>
                 <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Create account</Text>
@@ -91,7 +100,7 @@ const Register = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: '28%',
+                bottom: windowHeight * 0.17,
             }}>
                 <Text>You have account?</Text>
                 <TouchableOpacity

@@ -1,12 +1,35 @@
-import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
+import * as ImagePicker from 'expo-image-picker';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const StartProject = () => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
+
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    
     <Image source={require('../assets/logo.png')} style={{
         alignSelf: 'center',
         width: 138,
@@ -17,6 +40,7 @@ const StartProject = () => {
 
       <TouchableOpacity 
       style={{
+      
         bottom: windowWidth * -0.145,
         right: windowWidth * 0.27,
         paddingTop: 10,
@@ -52,8 +76,10 @@ const StartProject = () => {
         bottom: windowHeight * 0.3,
       }}>Tap to create a new banner</Text>
       <TouchableOpacity style={{ zIndex: 1,
-      bottom: windowHeight * 0.28,}}>
-      <Image source={require('../assets/Group9.png')}></Image></TouchableOpacity>
+      bottom: windowHeight * 0.28,}} onPress={pickImage}>
+      <Image source={require('../assets/Group9.png')}></Image>
+      </TouchableOpacity>
+      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
     </SafeAreaView>
     
   )

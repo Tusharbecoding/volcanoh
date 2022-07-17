@@ -7,7 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 
-const StartProject = ({navigation}) => {
+const StartProject = ({route, navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
@@ -28,12 +28,21 @@ const StartProject = ({navigation}) => {
 
     if (!result.cancelled) {
       setImage(result.uri);
+      navigation.navigate('StartProjectRight', {imageData: result.uri});
     }
   };
 
+  
+
   const changeScreen = () => {
-    navigation.navigate('StartProjectRight', { uri });
+    if (image === null) {
+      console.log('no image')
+    }
+    // navigation.navigate('StartProjectRight', { imageData: image });
   }
+
+
+
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     

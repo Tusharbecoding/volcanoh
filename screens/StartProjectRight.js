@@ -9,7 +9,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 const StartProjectRight = ({route, navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
-  const { startprojectright } = route.params;
+  const { imageData } = route.params;
   
 
 
@@ -20,14 +20,17 @@ const StartProjectRight = ({route, navigation}) => {
         alignSelf: 'center',
         width: 138,
         height: 45,
-        bottom: windowHeight * 0.3,
+        top: windowHeight * 0.06,
       }} />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, bottom: windowHeight * 0.35}} />
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.01}} />
+      
+      {imageData && <Image source={{ uri: imageData }} style={{
+         top: windowHeight * 0.04,
+         width: windowWidth * 0.9, height: windowHeight * 0.78, borderRadius: 20 }} />}
       <TouchableOpacity 
       style={{
       
-        top: windowWidth * 0.72,
+        top: windowWidth * 0.085,
         right: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,
@@ -41,7 +44,7 @@ const StartProjectRight = ({route, navigation}) => {
       </TouchableOpacity>
       <TouchableOpacity 
       style={{
-        top: windowHeight * 0.378 ,
+        bottom: windowWidth * 0.01,
         left: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,
@@ -53,7 +56,7 @@ const StartProjectRight = ({route, navigation}) => {
       }}>
         <Text style={{color: 'rgba(174, 174, 178, 1)',}}>Right</Text>
       </TouchableOpacity>
-      <Image source={uri} />
+      
       
     </SafeAreaView>
     

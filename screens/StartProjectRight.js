@@ -44,7 +44,7 @@ const StartProjectRight = ({route, navigation}) => {
       </TouchableOpacity>
       <TouchableOpacity 
       style={{
-        bottom: windowWidth * 0.01,
+        bottom: windowWidth * 0.021,
         left: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,

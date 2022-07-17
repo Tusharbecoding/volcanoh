@@ -6,15 +6,14 @@ import StartProjectRight from './StartProjectRight';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
+
 const StartProject = ({navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
   const [image, setImage] = useState(null);
-
-  const changeScreen = () => {
-    navigation.navigate('StartProjectRight');
-  }
+  
+  
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -31,6 +30,10 @@ const StartProject = ({navigation}) => {
       setImage(result.uri);
     }
   };
+
+  const changeScreen = () => {
+    navigation.navigate('StartProjectRight', { uri });
+  }
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     
@@ -81,7 +84,7 @@ const StartProject = ({navigation}) => {
         bottom: windowHeight * 0.3,
       }}>Tap to create a new banner</Text>
       <TouchableOpacity style={{ zIndex: 1,
-      bottom: windowHeight * 0.28,}} onPress={pickImage} onPressIn={changeScreen}>
+      bottom: windowHeight * 0.28,}} onPressIn={pickImage} onPress={changeScreen}>
       <Image source={require('../assets/Group9.png')}></Image>
       </TouchableOpacity>
       

@@ -2,31 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import * as ImagePicker from 'expo-image-picker';
-
+import StartProject from './StartProject';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-const StartProjectRight = () => {
+const StartProjectRight = ({route, navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
+  const { startprojectright } = route.params;
+  
 
-  const [image, setImage] = useState(null);
 
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  };
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     
@@ -67,7 +53,7 @@ const StartProjectRight = () => {
       }}>
         <Text style={{color: 'rgba(174, 174, 178, 1)',}}>Right</Text>
       </TouchableOpacity>
-      
+      <Image source={uri} />
       
     </SafeAreaView>
     

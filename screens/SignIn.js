@@ -13,6 +13,18 @@ const SignIn = ({navigation}) => {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
 
+    // function SignIn() {
+    //     const { email, password } = this.state;
+    //     firebase.auth().signInWithEmailAndPassword(email, password)
+    //         .then(() => {
+    //             navigation.replace('HomeScreen');
+    //         })
+    //         .catch((error) => {
+    //             alert(error.message)
+    //             // ..
+    //         });
+    // }
+
     return (
         <SafeAreaView
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

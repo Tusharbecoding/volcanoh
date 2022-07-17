@@ -2,19 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import * as ImagePicker from 'expo-image-picker';
-import StartProjectRight from './StartProjectRight';
+
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-const StartProject = ({navigation}) => {
+const StartProjectRight = () => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
   const [image, setImage] = useState(null);
-
-  const changeScreen = () => {
-    navigation.navigate('StartProjectRight');
-  }
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -38,14 +34,14 @@ const StartProject = ({navigation}) => {
         alignSelf: 'center',
         width: 138,
         height: 45,
-        bottom: windowHeight * -0.1,
+        bottom: windowHeight * 0.3,
       }} />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, bottom: windowHeight * -0.05}} />
-
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, bottom: windowHeight * 0.35}} />
+      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
       <TouchableOpacity 
       style={{
       
-        bottom: windowWidth * -0.145,
+        top: windowWidth * 0.72,
         right: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,
@@ -59,7 +55,7 @@ const StartProject = ({navigation}) => {
       </TouchableOpacity>
       <TouchableOpacity 
       style={{
-        bottom: windowHeight * -0.03 ,
+        top: windowHeight * 0.378 ,
         left: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,
@@ -68,26 +64,14 @@ const StartProject = ({navigation}) => {
         borderTopWidth:0,
         borderLeftWidth:0,
         borderWidth: 0,
-      }}
-      onPress={() => navigation.navigate('StartProjectRight')}>
+      }}>
         <Text style={{color: 'rgba(174, 174, 178, 1)',}}>Right</Text>
       </TouchableOpacity>
-      <Image source={require('../assets/backgroundproject.png')} style={{top: windowHeight * 0.07}}></Image>
-      <Text
-      style={{
-        fontWeight: 'bold',
-        width: 90,
-        zIndex: 1,
-        bottom: windowHeight * 0.3,
-      }}>Tap to create a new banner</Text>
-      <TouchableOpacity style={{ zIndex: 1,
-      bottom: windowHeight * 0.28,}} onPress={pickImage} onPressIn={changeScreen}>
-      <Image source={require('../assets/Group9.png')}></Image>
-      </TouchableOpacity>
+      
       
     </SafeAreaView>
     
   )
 }
 
-export default StartProject
+export default StartProjectRight

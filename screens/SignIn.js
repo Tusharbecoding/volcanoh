@@ -4,7 +4,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
+const auth = getAuth();
 
 const SignIn = ({navigation}) => {
 
@@ -12,18 +14,20 @@ const SignIn = ({navigation}) => {
     const [password, onChangePassword] = React.useState();
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
+    const [validationMessage,setvalidationMessage] = useState('');
 
-    // function SignIn() {
-    //     const { email, password } = this.state;
-    //     firebase.auth().signInWithEmailAndPassword(email, password)
-    //         .then(() => {
-    //             navigation.replace('HomeScreen');
-    //         })
-    //         .catch((error) => {
-    //             alert(error.message)
-    //             // ..
-    //         });
-    // }
+    async function login() {
+        if (email === '' || password === '') {
+          setvalidationMessage('required filled missing')
+          return;
+        }
+    
+        try {
+          await signInWithEmailAndPassword(auth,email, password);
+        } catch (error) {
+         setvalidationMessage(error.message);
+        }
+      }
 
     return (
         <SafeAreaView
@@ -92,6 +96,7 @@ const SignIn = ({navigation}) => {
             }}
             >Forgot your password?</Text>  
             </TouchableOpacity>
+            {<Text>{validationMessage}</Text>}
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
                     width: 355,
@@ -100,7 +105,7 @@ const SignIn = ({navigation}) => {
                     justifyContent: "center",
                     bottom: windowHeight * 0.17,
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
-                    onPress={() => navigation.navigate('HomeScreen')}
+                    onPress={login}
                     >
                 <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Sign in</Text>
 

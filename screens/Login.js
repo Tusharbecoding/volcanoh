@@ -2,7 +2,15 @@ import React from 'react';
 import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-
+import Register from './Register';
+import SignIn from './SignIn';
+import ForgotPassword from './ForgotPassword';
+import ResetPassword from './ResetPassword';
+import TotalError from './TotalError';
+import HomeScreen from './HomeScreen';
+import StartProject from './StartProject';
+import StartProjectRight from './StartProjectRight';
+import GalleryScreen from './GalleryScreen';
 
 const Login = ({navigation}) => {
   const windowWidth = Dimensions.get('window').width;

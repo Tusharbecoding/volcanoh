@@ -4,7 +4,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Feather from 'react-native-vector-icons/Feather';
 import { useState } from 'react';
-
+import { getAuth, signOut } from 'firebase/auth';
+import { useAuthentication } from '../hook/useAuthentication';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import StartProject from './StartProject';
 import MyProjects from './MyProjects';

@@ -1275,7 +1275,7 @@
     xcode "^3.0.1"
     xml2js "0.4.23"
 
-"@expo/config-plugins@4.1.5", "@expo/config-plugins@^4.0.14", "@expo/config-plugins@~4.1.4":
+"@expo/config-plugins@4.1.5", "@expo/config-plugins@^4.0.14", "@expo/config-plugins@^4.0.9", "@expo/config-plugins@~4.1.4":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-4.1.5.tgz#9d357d2cda9c095e511b51583ede8a3b76174068"
   integrity sha512-RVvU40RtZt12HavuDAe+LDIq9lHj7sheOfMEHdmpJ/uTA8pgvkbc56XF6JHQD+yRr6+uhhb+JnAasGq49dsQbw==
@@ -5966,7 +5966,7 @@ expo-cli@^5.5.1:
     wrap-ansi "^7.0.0"
     xdl "59.2.44"
 
-expo-constants@~13.1.1:
+expo-constants@^13.1.1, expo-constants@~13.1.1:
   version "13.1.1"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-13.1.1.tgz#78c26c760cc63cd5608bc4b51bd159d7339d8054"
   integrity sha512-QRVHrrMCLenBzWZ8M+EvCXM+jjdQzFMW27YQHRac3SGGoND1hWr81scOmGwlFo2wLZrYXm8HcYt1E6ry3IIwrA==
@@ -10793,6 +10793,13 @@ react-native-image-crop-picker@^0.38.0:
   resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.38.0.tgz#3f67a0ec40618e3cd6e05d3e7b90e70d01eaddf8"
   integrity sha512-FaLASXOP7R23pi20vMiVlXl0Y7cwTdl7y7yBqrlrsSH9gl9ibsU5y4mYWPYRbe8x9F/3zPGUE+1F0Gj/QF/peg==
 
+react-native-imglysdk@2.15.0:
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/react-native-imglysdk/-/react-native-imglysdk-2.15.0.tgz#ca798e2964f73ded508b2705bab4aec0f39aea22"
+  integrity sha512-I5rtYl4xELV8TpjpSJQO/u9ALC0bdhC/Z1W+A2IS4Gb0Drx4SsA/7qu/ZxZP93PmPumv923YhcwDJZfY6LWo/g==
+  dependencies:
+    "@expo/config-plugins" "^4.0.9"
+
 react-native-iphone-x-helper@^1.3.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
@@ -10809,6 +10816,13 @@ react-native-onboarding-swiper@^1.2.0:
   integrity sha512-UcQ9FTSPG/t12B7dddr62xtA7qHb+MEc/kQnkkUbeWas0+0fQPjTjiFcVZm5LI3CP5X0HVp7U1Rzfrpf3O9lJA==
   dependencies:
     tinycolor2 "^1.4.1"
+
+react-native-photoeditorsdk@^2.15.0:
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/react-native-photoeditorsdk/-/react-native-photoeditorsdk-2.15.0.tgz#019f11ea498f70c2ea44a5ffa678568a5572e73a"
+  integrity sha512-Yib2xXiMKFXv56M7I92bHAKyvdM8A8Q0rHv5TKY0tUCb0MEo4BKhC+i4UzwepHUYnOuw16Z6sM0ODmdHx2x54Q==
+  dependencies:
+    react-native-imglysdk "2.15.0"
 
 react-native-reanimated@~2.8.0:
   version "2.8.0"
@@ -10911,6 +10925,11 @@ react-native@0.68.2:
     use-subscription ">=1.0.0 <1.6.0"
     whatwg-fetch "^3.0.0"
     ws "^6.1.4"
+
+react-navigation-drawer@^2.7.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-2.7.2.tgz#3080804cb3133e33ddce7802c9a150ff1e4b90ea"
+  integrity sha512-AZgluZ8txCG+MrITF+VuHYAnnLaUQw/HvxHKWrAngy/CbmyEIgXEowvShCKMZDMa7PUtKY5+xuwgQtniGgGKsg==
 
 react-navigation-stack@^2.10.4:
   version "2.10.4"

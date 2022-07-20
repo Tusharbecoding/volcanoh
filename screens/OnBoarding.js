@@ -10,7 +10,16 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-
+import Login from './Login';
+import Register from './Register';
+import SignIn from './SignIn';
+import ForgotPassword from './ForgotPassword';
+import ResetPassword from './ResetPassword';
+import TotalError from './TotalError';
+import HomeScreen from './HomeScreen';
+import StartProject from './StartProject';
+import StartProjectRight from './StartProjectRight';
+import GalleryScreen from './GalleryScreen';
 const {width, height} = Dimensions.get('window');
 
 const COLORS = {primary: 'white', black: 'black'};

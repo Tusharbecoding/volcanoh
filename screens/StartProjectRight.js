@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
+import Entypo from 'react-native-vector-icons/Entypo';
 import * as ImagePicker from 'expo-image-picker';
 import StartProject from './StartProject';
 import {NavigationContainer} from '@react-navigation/native';
@@ -23,9 +24,9 @@ const StartProjectRight = ({route, navigation}) => {
         top: windowHeight * 0.06,
       }} />
       <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.01}} />
-      
+
       {imageData && <Image source={{ uri: imageData }} style={{
-         top: windowHeight * 0.04,
+         top: windowHeight * 0.04, resizeMode: 'stretch',
          width: windowWidth * 0.9, height: windowHeight * 0.78, borderRadius: 20 }} />}
       <TouchableOpacity 
       style={{

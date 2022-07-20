@@ -5,11 +5,16 @@ import * as ImagePicker from 'expo-image-picker';
 import StartProjectRight from './StartProjectRight';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import { getAuth, signOut } from 'firebase/auth';
+import { useAuthentication } from '../hook/useAuthentication';
+
+const auth = getAuth();
 
 
 const StartProject = ({route, navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
+  const { user } = useAuthentication();
 
   const [image, setImage] = useState(null);
   
@@ -52,7 +57,7 @@ const StartProject = ({route, navigation}) => {
         height: 45,
         bottom: windowHeight * -0.1,
       }} />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, bottom: windowHeight * -0.05}} />
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, bottom: windowHeight * -0.05}} onPress={() => signOut(auth)} />
 
       <TouchableOpacity 
       style={{

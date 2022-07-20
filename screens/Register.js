@@ -4,7 +4,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
+const auth = getAuth()
 
 const Register = ({navigation}) => {
 
@@ -13,6 +15,18 @@ const Register = ({navigation}) => {
     const [name, onChangeName] = React.useState();
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
+
+    async function createAccount() {
+        email === '' || password === '' 
+        ? setValidationMessage('required filled missing')
+        : ''
+        try {
+          await createUserWithEmailAndPassword(auth, email, password);
+          navigation.navigate('SignIn');
+        } catch (error) {
+          setValidationMessage(error.message);
+        }
+      }
 
     return (
         <SafeAreaView
@@ -91,7 +105,7 @@ const Register = ({navigation}) => {
                     justifyContent: "center",
                     bottom: windowHeight * 0.19,
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
-                    onPress={() => navigation.navigate('Register')}>
+                    onPress={createAccount}>
                 <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Create account</Text>
 
             </TouchableOpacity>

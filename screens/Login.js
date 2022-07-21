@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -11,10 +11,36 @@ import HomeScreen from './HomeScreen';
 import StartProject from './StartProject';
 import StartProjectRight from './StartProjectRight';
 import GalleryScreen from './GalleryScreen';
+import * as React from 'react';
+import * as WebBrowser from 'expo-web-browser';
+import { ResponseType } from 'expo-auth-session';
+import * as Google from 'expo-auth-session/providers/google';
+import { initializeApp } from 'firebase/app';
+import { getAuth, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
+
+WebBrowser.maybeCompleteAuthSession();
 
 const Login = ({navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
+  const [request, response, promptAsync] = Google.useIdTokenAuthRequest(
+    {
+      clientId: '68240448112-lr4ovq00kfe11o0fcjsrn41h05vd477s.apps.googleusercontent.com',
+    },
+    {
+      behavior: 'web',
+    }
+  );
+
+  React.useEffect(() => {
+    if (response?.type === 'success') {
+      const { id_token } = response.params;
+      
+      const auth = getAuth();
+      const credential = GoogleAuthProvider.credential(id_token);
+      signInWithCredential(auth, credential);
+    }
+  }, [response]);
     return (
         <SafeAreaView
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -43,7 +69,12 @@ const Login = ({navigation}) => {
 
             </TouchableOpacity>
             <TouchableOpacity
-            style={{bottom: windowHeight * 0.13}}>
+            style={{bottom: windowHeight * 0.13}}
+            disabled={!request}
+            onPress={() => {
+              promptAsync();
+              }}
+              >
               <Image source={require('../assets/ButtonGoogle.png')} style={{
                 
                 

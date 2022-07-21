@@ -35,8 +35,9 @@ export default function AuthStack() {
             component={OnBoarding}
           />
         )}
-          <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="SignIn" component={SignIn} />
+          
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
           <Stack.Screen name="ResetPassword" component={ResetPassword} />

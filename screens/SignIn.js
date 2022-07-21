@@ -103,7 +103,7 @@ const SignIn = ({navigation}) => {
                     height: 50,
                     alignItems: "center",
                     justifyContent: "center",
-                    bottom: windowHeight * 0.17,
+                    bottom: windowHeight * 0.22,
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
                     onPress={login}
                     >
@@ -115,7 +115,7 @@ const SignIn = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: windowHeight * 0.15,
+                bottom: windowHeight * 0.21,
             }}>
                 <Text>Don't have account?</Text>
                 <TouchableOpacity

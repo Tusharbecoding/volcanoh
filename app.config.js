@@ -7,6 +7,7 @@ export default{
     "slug": "volcanoh",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme": "volcanoh",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

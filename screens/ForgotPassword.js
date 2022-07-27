@@ -1,16 +1,40 @@
 import React from 'react';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
 
+const auth = getAuth();
 
-const ForgotPassword = ({navigation}) => {
+const forgotPassword = (Email) => {
+
+    console.log("reset email sent to " + Email);
+    sendPasswordResetEmail(auth, Email, null)
+        .then(() => {
+            alert("reset email sent to " + Email);
+        })
+        .catch(function (e) {
+            console.log(e);
+        });
+};
+
+const ForgotPassword = ({navigation}, Email) => {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
     const [email, onChangeEmail] = React.useState();
-    
+    const forgotPassword = (Email) => {
+
+        console.log("reset email sent to " + Email);
+        sendPasswordResetEmail(auth, Email, null)
+            .then(() => {
+                alert("reset email sent to " + Email);
+            })
+            .catch(function (e) {
+                console.log(e);
+            });
+    };
 
     return (
         <SafeAreaView
@@ -63,7 +87,7 @@ const ForgotPassword = ({navigation}) => {
                     justifyContent: "center",
                     bottom: '15%',
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
-                    onPress={() => navigation.navigate('ResetPassword')}
+                    onPress={forgotPassword(email)}
                     >
                 <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Send email</Text>
 

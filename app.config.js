@@ -15,6 +15,7 @@ export default{
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -25,9 +26,11 @@ export default{
       "supportsTablet": true
     },
     "android": {
+      "package": "com.tusharbecoding.volcanoh",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#FFFFFF",
+        
       }
     },
     "web": {

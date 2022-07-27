@@ -15,7 +15,8 @@ const Register = ({navigation}) => {
     const [name, onChangeName] = React.useState();
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
-
+    const [validationMessage,setvalidationMessage] = useState('');
+    
     async function createAccount() {
         email === '' || password === '' 
         ? setValidationMessage('required filled missing')
@@ -75,6 +76,7 @@ const Register = ({navigation}) => {
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
                     
                 }}
+                autoCapitalize="none"
                 placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
                 placeholder="Email address"
                 onChangeText={onChangeEmail}
@@ -90,13 +92,14 @@ const Register = ({navigation}) => {
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
                     
                 }}
+                autoCapitalize="none"
                 placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
                 placeholder="Password"
                 onChangeText={onChangePassword}
                 value={password}
                 secureTextEntry={true} 
               />
-            
+            {<Text style={{bottom: windowHeight * 0.23, color: 'red'}}>{validationMessage}</Text>}
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
                     width: 355,

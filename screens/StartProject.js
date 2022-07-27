@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ImagePicker from 'expo-image-picker';
 import StartProjectRight from './StartProjectRight';
 import {NavigationContainer} from '@react-navigation/native';
@@ -9,6 +10,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import { useAuthentication } from '../hook/useAuthentication';
 
 const auth = getAuth();
+const Drawer = createDrawerNavigator();
 
 
 const StartProject = ({route, navigation}) => {
@@ -86,7 +88,7 @@ const StartProject = ({route, navigation}) => {
         borderLeftWidth:0,
         borderWidth: 0,
       }}
-      onPress={() => navigation.navigate('StartProjectRight')}>
+      >
         <Text style={{color: 'rgba(174, 174, 178, 1)',}}>Right</Text>
       </TouchableOpacity>
       <Image source={require('../assets/backgroundproject.png')} style={{top: windowHeight * 0.07}}></Image>

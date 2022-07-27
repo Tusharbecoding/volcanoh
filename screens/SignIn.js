@@ -25,7 +25,7 @@ const SignIn = ({navigation}) => {
         try {
           await signInWithEmailAndPassword(auth,email, password);
         } catch (error) {
-         setvalidationMessage(error.message);
+         setvalidationMessage("Email or Password is incorrect");
         }
       }
 
@@ -62,6 +62,7 @@ const SignIn = ({navigation}) => {
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
                     
                 }}
+                autoCapitalize="none"
                 placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
                 placeholder="Email address"
                 onChangeText={onChangeEmail}
@@ -77,6 +78,7 @@ const SignIn = ({navigation}) => {
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
                     
                 }}
+                autoCapitalize="none"
                 placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
                 placeholder="Password"
                 onChangeText={onChangePassword}
@@ -96,7 +98,7 @@ const SignIn = ({navigation}) => {
             }}
             >Forgot your password?</Text>  
             </TouchableOpacity>
-            {<Text>{validationMessage}</Text>}
+            {<Text style={{bottom: windowHeight * 0.23, color: 'red'}}>{validationMessage}</Text>}
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
                     width: 355,

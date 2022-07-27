@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, ScrollView, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+
 import Feather from 'react-native-vector-icons/Feather';
 import { useState } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
@@ -20,7 +22,7 @@ const Tab = createBottomTabNavigator();
 const HomeScreen = ({navigation}) => {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
-
+    
     return (
         <>
         

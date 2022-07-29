@@ -58,7 +58,7 @@ const ForgotPassword = ({navigation}, Email) => {
                 lineHeight: 24,
                 color: "rgba(16, 16, 16, 0.8)",
                 
-            }}>Enter your emal which you used to registrate.
+            }}>Enter your emal which you used to register.
             We’ll send you an email with your username and a link to reset your password.</Text>    
             
             

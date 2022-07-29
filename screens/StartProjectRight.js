@@ -21,17 +21,21 @@ const StartProjectRight = ({route, navigation}) => {
         alignSelf: 'center',
         width: 138,
         height: 45,
-        top: windowHeight * 0.06,
+        top: windowHeight * 0.2,
       }} />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.01}} />
-
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.15}} />
+      <Entypo name="cross" size={30} color="white" style={{right: windowWidth * 0.4, top: windowHeight * 0.21, right: windowWidth * 0.38  ,zIndex: 2}} />
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.158, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.8}}/>
+      <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.12, left:windowWidth * 0.11 ,zIndex: 2}}/>
+      <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.0781, left: windowWidth * 0.23 ,zIndex: 2}}/>
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.017, left: windowWidth * 0.35,zIndex: 2, opacity: 0.8}}/>
+      <Image source={require('../assets/options.png')} style={{bottom: windowHeight * 0.03, left: windowWidth * 0.35 ,zIndex: 2}}/>
       {imageData && <Image source={{ uri: imageData }} style={{
-         top: windowHeight * 0.04, resizeMode: 'stretch',
+         bottom: windowHeight * 0.09, resizeMode: 'stretch',
          width: windowWidth * 0.9, height: windowHeight * 0.78, borderRadius: 20 }} />}
       <TouchableOpacity 
       style={{
-      
-        top: windowWidth * 0.085,
+        bottom: windowWidth * 0.15,
         right: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,
@@ -45,7 +49,7 @@ const StartProjectRight = ({route, navigation}) => {
       </TouchableOpacity>
       <TouchableOpacity 
       style={{
-        bottom: windowWidth * 0.021,
+        bottom: windowWidth * 0.24,
         left: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,

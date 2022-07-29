@@ -21,18 +21,35 @@ const StartProjectRight = ({route, navigation}) => {
         alignSelf: 'center',
         width: 138,
         height: 45,
-        top: windowHeight * 0.2,
+        top: windowHeight * 0.24,
       }} />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.15}} />
-      <Entypo name="cross" size={30} color="white" style={{right: windowWidth * 0.4, top: windowHeight * 0.21, right: windowWidth * 0.38  ,zIndex: 2}} />
-      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.158, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.8}}/>
-      <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.12, left:windowWidth * 0.11 ,zIndex: 2}}/>
-      <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.0781, left: windowWidth * 0.23 ,zIndex: 2}}/>
-      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.017, left: windowWidth * 0.35,zIndex: 2, opacity: 0.8}}/>
-      <Image source={require('../assets/options.png')} style={{bottom: windowHeight * 0.03, left: windowWidth * 0.35 ,zIndex: 2}}/>
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.19}} />
+      <Entypo name="cross" size={30} color="white" style={{right: windowWidth * 0.4, top: windowHeight * 0.24, right: windowWidth * 0.38  ,zIndex: 2}} onPress={() => navigation.navigate('StartProject')} />
+      <TouchableOpacity style={{zIndex:2}}>
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.192, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.8}}/>
+      <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.152, left:windowWidth * 0.1445 ,zIndex: 2}}/></TouchableOpacity>
+      <TouchableOpacity style={{zIndex:2}}>
+      <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.11, left: windowWidth * 0.23 ,zIndex: 2}}/></TouchableOpacity>
+      <TouchableOpacity style={{zIndex:2}}>
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.05, left: windowWidth * 0.35,zIndex: 2, opacity: 0.8}}/>
+      <Image source={require('../assets/options.png')} style={{top: windowHeight * 0.003, left: windowWidth * 0.372 ,zIndex: 2}}/></TouchableOpacity>
       {imageData && <Image source={{ uri: imageData }} style={{
-         bottom: windowHeight * 0.09, resizeMode: 'stretch',
+         bottom: windowHeight * 0.06, resizeMode: 'stretch',
          width: windowWidth * 0.9, height: windowHeight * 0.78, borderRadius: 20 }} />}
+      <TouchableOpacity style={{width: "80%",
+        borderRadius: 20,
+        width: 136,
+        height: 46,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "rgba(181, 56, 62, 1)",
+        bottom: windowHeight * 0.15,
+        left: windowWidth * 0.24,
+        zIndex: 2,
+      }}
+        
+      >
+      <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Publish</Text></TouchableOpacity>
       <TouchableOpacity 
       style={{
         bottom: windowWidth * 0.15,

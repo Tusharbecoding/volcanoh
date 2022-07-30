@@ -4,6 +4,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as ImagePicker from 'expo-image-picker';
 import StartProject from './StartProject';
+import HomeScreen from './HomeScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -17,14 +18,15 @@ const StartProjectRight = ({route, navigation}) => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     
-    <Image source={require('../assets/logo.png')} style={{
+      <Image source={require('../assets/logo.png')} style={{
         alignSelf: 'center',
         width: 138,
         height: 45,
         top: windowHeight * 0.24,
-      }} />
+        }} 
+      />
       <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.19}} />
-      <Entypo name="cross" size={30} color="white" style={{right: windowWidth * 0.4, top: windowHeight * 0.24, right: windowWidth * 0.38  ,zIndex: 2}} onPress={() => navigation.navigate('StartProject')} />
+      <Entypo name="cross" size={30} color="white" style={{right: windowWidth * 0.4, top: windowHeight * 0.24, right: windowWidth * 0.38  ,zIndex: 2}} onPress={() => navigation.navigate('HomeScreen')} />
       <TouchableOpacity style={{zIndex:2}}>
       <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.192, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.8}}/>
       <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.152, left:windowWidth * 0.1445 ,zIndex: 2}}/></TouchableOpacity>
@@ -49,10 +51,10 @@ const StartProjectRight = ({route, navigation}) => {
       }}
         
       >
-      <Text style={{color:'white', fontWeight: '600', fontSize: 13}}>Publish</Text></TouchableOpacity>
+      <Text style={{color:'white', fontWeight: '600', fontSize: 15}}>Publish</Text></TouchableOpacity>
       <TouchableOpacity 
       style={{
-        bottom: windowWidth * 0.15,
+        bottom: windowWidth * 0.2,
         right: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,
@@ -66,7 +68,7 @@ const StartProjectRight = ({route, navigation}) => {
       </TouchableOpacity>
       <TouchableOpacity 
       style={{
-        bottom: windowWidth * 0.24,
+        bottom: windowWidth * 0.297,
         left: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,

@@ -59,7 +59,7 @@ const StartProject = ({route, navigation}) => {
         height: 45,
         bottom: windowHeight * -0.1,
       }} />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, bottom: windowHeight * -0.05}} onPress={() => signOut(auth)} />
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.42, bottom: windowHeight * -0.05}} onPress={() => signOut(auth)} />
 
       <TouchableOpacity 
       style={{

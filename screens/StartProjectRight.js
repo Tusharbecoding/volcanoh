@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, Button, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Image, Picker, Dimensions, Button, TouchableOpacity, ScrollView,Modal } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as ImagePicker from 'expo-image-picker';
@@ -7,13 +7,22 @@ import StartProject from './StartProject';
 import HomeScreen from './HomeScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {
+  Grayscale,
+  Sepia,
+  Tint,
+  ColorMatrix,
+  concatColorMatrices,
+  invert,
+  contrast,
+  saturate
+} from 'react-native-color-matrix-image-filters'
 
 const StartProjectRight = ({route, navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   const { imageData } = route.params;
-  
-
+  // const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -32,9 +41,14 @@ const StartProjectRight = ({route, navigation}) => {
       <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.152, left:windowWidth * 0.1445 ,zIndex: 2}}/></TouchableOpacity>
       <TouchableOpacity style={{zIndex:2}}>
       <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.11, left: windowWidth * 0.23 ,zIndex: 2}}/></TouchableOpacity>
-      <TouchableOpacity style={{zIndex:2}}>
+      
+      
+      <TouchableOpacity style={{"zIndex":2}}>
       <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.05, left: windowWidth * 0.35,zIndex: 2, opacity: 0.8}}/>
-      <Image source={require('../assets/options.png')} style={{top: windowHeight * 0.003, left: windowWidth * 0.372 ,zIndex: 2}}/></TouchableOpacity>
+      <Image source={require('../assets/options.png')} style={{top: windowHeight * 0.003, left: windowWidth * 0.372 ,zIndex: 2}}/>
+      </TouchableOpacity>
+      
+      
       {imageData && <Image source={{ uri: imageData }} style={{
          bottom: windowHeight * 0.06, resizeMode: 'stretch',
          width: windowWidth * 0.9, height: windowHeight * 0.78, borderRadius: 20 }} />}

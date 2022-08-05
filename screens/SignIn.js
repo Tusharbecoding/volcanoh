@@ -25,7 +25,7 @@ const SignIn = ({navigation}) => {
         try {
           await signInWithEmailAndPassword(auth,email, password);
         } catch (error) {
-         setvalidationMessage("Email or Password is incorrect");
+         setvalidationMessage("Invalid email or password");
         }
       }
 

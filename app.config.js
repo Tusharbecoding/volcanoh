@@ -9,7 +9,7 @@ export default{
     "orientation": "portrait",
     "scheme": "volcanoh",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash1.png",
       "resizeMode": "contain",
@@ -27,9 +27,9 @@ export default{
     },
     "android": {
       "package": "com.tusharbecoding.volcanoh",
+      "permissions":["READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE", "INTERNET", "CAMERA_ROLL", "CAMERA"],
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF",
+        "foregroundImage": "./assets/icon.png",
         
       }
     },

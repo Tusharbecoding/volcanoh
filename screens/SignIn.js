@@ -36,11 +36,11 @@ const SignIn = ({navigation}) => {
             style={{flex: 1}}
             showsVerticalScrollIndicator={false}>
             <TouchableOpacity style={{
-                top: windowHeight * 0.095,
+                top: windowHeight * 0.085,
 
             }}
             onPress={() => navigation.navigate('Login')}>
-                <Image source={require('../assets/arrow.png')} style={{width: 20, height: 16}} />
+            <Image source={require('../assets/arrow.png')} style={{width: 20, height: 16}} />
             </TouchableOpacity> 
             <Image source={require('../assets/logo.png')} style={{
                 alignSelf: 'center',
@@ -50,13 +50,13 @@ const SignIn = ({navigation}) => {
               }} />
             <Image source={require('../assets/image13.png')} style={{resizeMode: 'contain', bottom: '8%', height: 500, left: '15%'}}/>
             <Text
-                style={{fontWeight: '600', bottom: windowHeight * 0.29, fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Sign In</Text>
+                style={{fontWeight: '600', bottom: windowHeight * 0.25, fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Sign In</Text>
             
             
                 <TextInput
                 style={{
                     height: 45,
-                    bottom: windowHeight * 0.26,
+                    bottom: windowHeight * 0.22,
                     borderRadius: 8,
                     padding: 10,
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
@@ -72,7 +72,7 @@ const SignIn = ({navigation}) => {
               <TextInput
                 style={{
                     height: 45,
-                    bottom: windowHeight * 0.248,
+                    bottom: windowHeight * 0.21,
                     borderRadius: 8,
                     padding: 10,
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
@@ -87,8 +87,8 @@ const SignIn = ({navigation}) => {
               />
             <TouchableOpacity
             style={{
-                left: windowWidth * 0.5,
-                bottom: windowHeight * 0.24,
+                left: windowWidth * 0.54,
+                bottom: windowHeight * 0.2,
             }}
             onPress={() => navigation.navigate('ForgotPassword')}
             >
@@ -98,14 +98,14 @@ const SignIn = ({navigation}) => {
             }}
             >Forgot your password?</Text>  
             </TouchableOpacity>
-            {<Text style={{bottom: windowHeight * 0.23, color: 'red'}}>{validationMessage}</Text>}
+            {<Text style={{bottom: windowHeight * 0.18, color: 'red'}}>{validationMessage}</Text>}
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
                     width: 355,
                     height: 50,
                     alignItems: "center",
                     justifyContent: "center",
-                    bottom: windowHeight * 0.22,
+                    bottom: windowHeight * 0.165,
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
                     onPress={login}
                     >
@@ -117,7 +117,7 @@ const SignIn = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: windowHeight * 0.21,
+                bottom: windowHeight * 0.15,
             }}>
                 <Text>Don't have account?</Text>
                 <TouchableOpacity

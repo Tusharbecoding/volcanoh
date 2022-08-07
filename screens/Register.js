@@ -36,7 +36,7 @@ const Register = ({navigation}) => {
             style={{flex: 1}}
             showsVerticalScrollIndicator={false}>
             <TouchableOpacity style={{
-                top: windowHeight * 0.095,
+                top: windowHeight * 0.085,
 
             }}
             onPress={() => navigation.navigate('Login')}>

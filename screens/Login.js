@@ -48,11 +48,11 @@ const Login = ({navigation}) => {
                 alignSelf: 'center',
                 width: 125,
                 height: 40,
-                top: windowHeight * 0.12,
+                top: windowHeight * 0.08,
               }} />
-            <Image source={require('../assets/image11.png')} style={{resizeMode: 'cover', bottom: windowHeight * 0.01, height: 500}}/>
+            <Image source={require('../assets/image11.png')} style={{resizeMode: 'cover', bottom: windowHeight * 0.05, height: 500}}/>
             <Text
-                style={{fontWeight: '600', bottom: windowHeight * 0.17, fontSize: 19, color: "rgba(16, 16, 16, 1)"}}>Welcome to Volcanoh</Text>
+                style={{fontWeight: '600', bottom: windowHeight * 0.18, fontSize: 19, color: "rgba(16, 16, 16, 1)"}}>Welcome to Volcanoh</Text>
             <Text
               style={{bottom: windowHeight * 0.17, textAlign: 'center', paddingHorizontal: 100, lineHeight: 25, fontSize: 15, color: 'rgba(142, 142, 147, 0.8)'}}
             >The fastest way to boost your walk-ins</Text>
@@ -84,13 +84,14 @@ const Login = ({navigation}) => {
             style={{bottom: windowHeight * 0.12}}>
               <Image source={require('../assets/ButtonApple.png')}></Image>
             </TouchableOpacity>
-            <TouchableOpacity
-            onPress={() => navigation.navigate('SignIn')}>
+            
               <Text
+              onPress={() => navigation.navigate('SignIn')}
               style={{
                 bottom: windowHeight * 0.1,
-              }}>Sign In</Text>
-            </TouchableOpacity>
+                
+             }}>Sign In</Text>
+            
         </SafeAreaView>
     );
 };

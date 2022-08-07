@@ -46,18 +46,19 @@ const ForgotPassword = ({navigation}, Email) => {
                 alignSelf: 'center',
                 width: 125,
                 height: 40,
-                top: '5%'
+                top: windowHeight * 0.1,
               }} />
-            <Image source={require('../assets/image12.png')} style={{resizeMode: 'contain', bottom: '8%', height: windowHeight * 0.75, left: '7%'}}/>
+            <Image source={require('../assets/image12.png')} style={{resizeMode: 'contain', bottom: windowHeight * 0.09, height: windowHeight * 0.75, left: windowWidth * 0.08}}/>
             <Text
-                style={{fontWeight: '600', bottom: '25%', fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Forgot Password</Text>
+                style={{fontWeight: '600', bottom: windowHeight * 0.3, fontSize: 24, color: "rgba(16, 16, 16, 1)", }}>Forgot Password</Text>
             <Text
             style={{
-                bottom: '22%',
+                bottom: windowHeight * 0.27,
                 fontSize: 15,
                 lineHeight: 24,
                 color: "rgba(16, 16, 16, 0.8)",
                 
+                width: windowWidth * 0.955,
             }}>Enter your emal which you used to register.
             We’ll send you an email with your username and a link to reset your password.</Text>    
             
@@ -65,7 +66,8 @@ const ForgotPassword = ({navigation}, Email) => {
                 <TextInput
                 style={{
                     height: 45,
-                    bottom: '20%',
+                    bottom: windowHeight * 0.23,
+                    
                     borderRadius: 8,
                     padding: 10,
                     backgroundColor: 'rgba(214, 214, 214, 0.6)',
@@ -81,11 +83,11 @@ const ForgotPassword = ({navigation}, Email) => {
             
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
-                    width: 380,
+                    width: windowWidth * 0.955,
                     height: 50,
                     alignItems: "center",
                     justifyContent: "center",
-                    bottom: '15%',
+                    bottom: windowHeight * 0.19,
                     backgroundColor: "rgba(181, 56, 62, 1)",}}
                     onPress={forgotPassword(email)}
                     >
@@ -97,7 +99,7 @@ const ForgotPassword = ({navigation}, Email) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: '25%',
+                bottom: windowHeight * 0.17,
             }}>
                 <Text>Do you need help?</Text>
                 <TouchableOpacity

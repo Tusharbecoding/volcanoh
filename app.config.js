@@ -23,14 +23,13 @@ export default{
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
     },
     "android": {
       "package": "com.tusharbecoding.volcanoh",
       "permissions":["READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE", "INTERNET", "CAMERA_ROLL", "CAMERA"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        
       }
     },
     "web": {

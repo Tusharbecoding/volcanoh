@@ -34,18 +34,21 @@ const StartProjectRight = ({route, navigation}) => {
         top: windowHeight * 0.24,
         }} 
       />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.19}} />
-      <Entypo name="cross" size={30} color="white" style={{right: windowWidth * 0.4, top: windowHeight * 0.24, right: windowWidth * 0.38  ,zIndex: 2}} onPress={() => navigation.navigate('HomeScreen')} />
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.192}} />
+      <TouchableOpacity style={{zIndex: 2}}>
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.265,right: windowWidth * 0.364, zIndex: 2, opacity: 0.7}}/>
+      <Entypo name="cross" size={30} color="white" style={{ top: windowHeight * 0.22, right: windowWidth * 0.35  ,zIndex: 2}} onPress={() => navigation.navigate('HomeScreen')} />
+      </TouchableOpacity>
       <TouchableOpacity style={{zIndex:2}}>
-      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.192, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.8}}/>
-      <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.152, left:windowWidth * 0.1445 ,zIndex: 2}}/></TouchableOpacity>
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.175, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.7}}/>
+      <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.141, left:windowWidth * 0.147 ,zIndex: 2}}/></TouchableOpacity>
       <TouchableOpacity style={{zIndex:2}}>
-      <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.11, left: windowWidth * 0.23 ,zIndex: 2}}/></TouchableOpacity>
+      <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.107, left: windowWidth * 0.23 ,zIndex: 2}}/></TouchableOpacity>
       
       
       <TouchableOpacity style={{"zIndex":2}}>
-      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.05, left: windowWidth * 0.35,zIndex: 2, opacity: 0.8}}/>
-      <Image source={require('../assets/options.png')} style={{top: windowHeight * 0.003, left: windowWidth * 0.372 ,zIndex: 2}}/>
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.056, left: windowWidth * 0.35,zIndex: 2, opacity: 0.7}}/>
+      <Image source={require('../assets/options.png')} style={{top: windowHeight * 0.015, left: windowWidth * 0.372 ,zIndex: 2}}/>
       </TouchableOpacity>
       
       
@@ -68,7 +71,7 @@ const StartProjectRight = ({route, navigation}) => {
       <Text style={{color:'white', fontWeight: '600', fontSize: 15}}>Publish</Text></TouchableOpacity>
       <TouchableOpacity 
       style={{
-        bottom: windowWidth * 0.2,
+        bottom: windowWidth * 0.22,
         right: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,
@@ -82,7 +85,7 @@ const StartProjectRight = ({route, navigation}) => {
       </TouchableOpacity>
       <TouchableOpacity 
       style={{
-        bottom: windowWidth * 0.297,
+        bottom: windowWidth * 0.326,
         left: windowWidth * 0.27,
         paddingTop: 10,
         paddingBottom: 10,

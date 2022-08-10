@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, SearchBar, TextInput } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, SearchBar, TextInput, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import { useState } from 'react';
 //import { SearchBar } from 'react-native-elements';
@@ -10,7 +10,10 @@ const DailyIdeas = () => {
   const [search, onChangeSearch] = React.useState();
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      
+    <ScrollView 
+    // style={{flex: 1,justifyContent: 'center', alignItems: 'center'}}
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Image source={require('../assets/logo.png')} style={{
         width: 138,
         height: 45,
@@ -35,7 +38,7 @@ const DailyIdeas = () => {
                 onChangeText={onChangeSearch}
                 value={search} 
               />
-
+      </ScrollView>
     </SafeAreaView>
   )
 }

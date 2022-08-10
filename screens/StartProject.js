@@ -4,10 +4,12 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ImagePicker from 'expo-image-picker';
 import StartProjectRight from './StartProjectRight';
+
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { getAuth, signOut } from 'firebase/auth';
 import { useAuthentication } from '../hook/useAuthentication';
+import {StyleSheet} from 'react-native';
 
 const auth = getAuth();
 const Drawer = createDrawerNavigator();
@@ -19,7 +21,8 @@ const StartProject = ({route, navigation}) => {
   const { user } = useAuthentication();
 
   const [image, setImage] = useState(null);
-  
+  const [rColor, setRColor] = useState(false);
+  const [textColor, setTextColor] = useState(false);
   
 
   const pickImage = async () => {
@@ -39,7 +42,39 @@ const StartProject = ({route, navigation}) => {
     }
   };
 
-  
+  const styles = StyleSheet.create({
+    leftBtn:{
+      bottom: windowWidth * -0.145,
+      right: windowWidth * 0.27,
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingLeft: windowWidth * 0.2,  
+      paddingRight: windowWidth * 0.27,
+      color: 'blue'
+    },
+    rightBtn:{
+      top: windowHeight * 0.019 ,
+      left: windowWidth * 0.27,
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingLeft: windowWidth * 0.27,  
+      paddingRight: windowWidth * 0.2,
+    },
+    selBtn: {
+      borderTopWidth:0,
+      borderRightWidth:0,
+      borderLeftWidth:0,
+      borderWidth: 1,
+      rolor: 'blue',
+    },
+    unselBtn: {
+      borderTopWidth:0,
+      borderLeftWidth:0,
+      borderWidth: 0,
+      
+    },
+    
+  })
 
   const changeScreen = () => {
     if (image === null) {
@@ -47,6 +82,15 @@ const StartProject = ({route, navigation}) => {
     }
     // navigation.navigate('StartProjectRight', { imageData: image });
   }
+
+  const handleToggleLeft = () => {
+    setRColor(false);
+  }
+  const handleToggleRight = () => {
+    setRColor(true);
+  }
+  
+
 
 
 
@@ -62,34 +106,21 @@ const StartProject = ({route, navigation}) => {
       <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.42, top: windowHeight * 0.001}} onPress={() => signOut(auth)} />
 
       <TouchableOpacity 
-      style={{
-      
-        bottom: windowWidth * -0.145,
-        right: windowWidth * 0.27,
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: windowWidth * 0.2,  
-        paddingRight: windowWidth * 0.27,
-        borderTopWidth:0,
-        borderRightWidth:0,
-        borderWidth: 1,
-      }}>
-        <Text style={{color: 'black',}}>Left</Text>
+      style={[(rColor) ? styles.unselBtn : styles.selBtn, styles.leftBtn]}
+      onPress={handleToggleLeft}
+      >
+        <Text style={{color: 'black'}}
+        
+        >Left</Text>
       </TouchableOpacity>
       <TouchableOpacity 
-      style={{
-        bottom: windowHeight * -0.03 ,
-        left: windowWidth * 0.27,
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: windowWidth * 0.27,  
-        paddingRight: windowWidth * 0.2,
-        borderTopWidth:0,
-        borderLeftWidth:0,
-        borderWidth: 0,
-      }}
+      style = {[(rColor) ? (styles.selBtn) : (styles.unselBtn), styles.rightBtn]}
+      onPress={handleToggleRight}
       >
-        <Text style={{color: 'rgba(174, 174, 178, 1)',}}>Right</Text>
+        <Text
+        style={{color: 'black'}}
+        
+        >Right</Text>
       </TouchableOpacity>
       <Image source={require('../assets/backgroundproject.png')} style={{top: windowHeight * 0.07}}></Image>
       <Text
@@ -108,5 +139,6 @@ const StartProject = ({route, navigation}) => {
     
   )
 }
+
 
 export default StartProject

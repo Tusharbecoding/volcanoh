@@ -40,6 +40,7 @@
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~2.2.1",
     "react-native-image-crop-picker": "^0.38.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-login-screen": "^4.0.0",
     "react-native-onboarding-swiper": "^1.2.0",
     "react-native-photoeditorsdk": "^2.15.0",

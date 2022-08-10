@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, SafeAreaView, Image, Dimensions } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 
-const AddDevice = () => {
+const AddDevice = ({navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   return (

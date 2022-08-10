@@ -8,13 +8,15 @@ import AddDevice from '../screens/AddDevice';
 import Help from '../screens/Help';
 import StartProjectRight from '../screens/StartProjectRight';
 import GalleryScreen from '../screens/GalleryScreen';
+import { DrawerContent } from '../screens/DrawerContent';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function DrawerStack() {
   return (
-    <Drawer.Navigator screenOptions={{headerShown: false}}>
+    <Drawer.Navigator independent={true} screenOptions={{headerShown: false}} drawerContent = {(props) => <DrawerContent {...props} />}>
+      <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="Add Device" component={AddDevice} />
       <Drawer.Screen name="Help" component={Help} />
     </Drawer.Navigator>

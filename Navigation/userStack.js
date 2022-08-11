@@ -17,8 +17,7 @@ function DrawerStack() {
   return (
     <Drawer.Navigator independent={true} screenOptions={{headerShown: false}} drawerContent = {(props) => <DrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={HomeScreen} />
-      <Drawer.Screen name="Add Device" component={AddDevice} />
-      <Drawer.Screen name="Help" component={Help} />
+      
     </Drawer.Navigator>
   )
 }

@@ -13,11 +13,10 @@ import { DrawerContent } from '../screens/DrawerContent';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-function DrawerStack() {
+function DrawerStack({navigation}) {
   return (
     <Drawer.Navigator independent={true} screenOptions={{headerShown: false}} drawerContent = {(props) => <DrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={HomeScreen} />
-      
     </Drawer.Navigator>
   )
 }

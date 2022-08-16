@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, TextInput, S
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import SignIn from './SignIn';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -15,7 +16,7 @@ const Register = ({navigation}) => {
     const [name, onChangeName] = React.useState();
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
-    const [validationMessage,setvalidationMessage] = useState('');
+    const [validationMessage,setValidationMessage] = useState('');
     
     async function createAccount() {
         email === '' || password === '' 
@@ -99,7 +100,7 @@ const Register = ({navigation}) => {
                 value={password}
                 secureTextEntry={true} 
               />
-            {<Text style={{bottom: windowHeight * 0.23, color: 'red'}}>{validationMessage}</Text>}
+            {<Text style={{bottom: windowHeight * 0.2, color: 'red'}}>{validationMessage}</Text>}
             <TouchableOpacity style={{width: "80%",
                     borderRadius: 20,
                     width: 355,

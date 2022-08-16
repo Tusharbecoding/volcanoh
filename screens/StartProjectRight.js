@@ -35,13 +35,16 @@ const StartProjectRight = ({route, navigation}) => {
         }} 
       />
       <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.192}} />
+      
       <TouchableOpacity style={{zIndex: 2}}>
       <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.265,right: windowWidth * 0.364, zIndex: 2, opacity: 0.7}}/>
       <Entypo name="cross" size={30} color="white" style={{ top: windowHeight * 0.22, right: windowWidth * 0.35  ,zIndex: 2}} onPress={() => navigation.navigate('HomeScreen')} />
       </TouchableOpacity>
+      
       <TouchableOpacity style={{zIndex:2}}>
       <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.175, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.7}}/>
       <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.141, left:windowWidth * 0.147 ,zIndex: 2}}/></TouchableOpacity>
+      
       <TouchableOpacity style={{zIndex:2}}>
       <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.107, left: windowWidth * 0.23 ,zIndex: 2}}/></TouchableOpacity>
       

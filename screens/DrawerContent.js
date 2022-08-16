@@ -31,7 +31,7 @@ export function DrawerContent(props) {
                         <Entypo name="cross" size={35} color="black"  />
                         </View>
                     </View>
-                    <Drawer.Section style={{flex: 1, marginTop: 50}} independent={true}>
+                    <Drawer.Section style={{flex: 1, marginTop: 50}} >
                         <DrawerItem label="Add Device" onPress={() => {props.navigation.navigate('AddDevice')}} />
                         <DrawerItem label="Help" onPress={() => {props.navigation.navigate('Help')}} />
                         <DrawerItem label="Rate Volcanoh" onPress={() => {props.navigation.navigate('RateVolcanoh')}} />

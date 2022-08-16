@@ -4,7 +4,6 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ImagePicker from 'expo-image-picker';
 import StartProjectRight from './StartProjectRight';
-
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { getAuth, signOut } from 'firebase/auth';

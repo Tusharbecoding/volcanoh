@@ -1,4 +1,4 @@
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignIn from '../screens/SignIn';

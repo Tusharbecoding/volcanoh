@@ -18,6 +18,9 @@ export function DrawerContent(props) {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
     const { user } = useAuthentication();
+    const [isSwitchOn, setIsSwitchOn] = React.useState(false);
+
+    const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
     const [value, setValue] = React.useState(true);
     return (
         <View style={{flex: 1}}>
@@ -45,7 +48,7 @@ export function DrawerContent(props) {
                 <TouchableRipple>
                     <View style={styles.preference}>
                         <Text>Dark Mode</Text>
-                        <Switch />
+                        <Switch style={styles.switch} value={isSwitchOn} onValueChange={onToggleSwitch} />
                     </View>
                 </TouchableRipple>
 
@@ -60,5 +63,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingVertical: 12,
         paddingHorizontal: 16,
+    },
+    switch: {
+        bottom: '5%',
     }
+
 })

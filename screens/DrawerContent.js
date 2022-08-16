@@ -28,7 +28,7 @@ export function DrawerContent(props) {
                             marginTop: windowHeight * 0.07,
                             left: windowWidth * 0.025,
                         }}>
-                        <Entypo name="cross" size={35} color="black"  />
+                        <Entypo name="cross" size={35} color="black" onPress={() => props.navigation.closeDrawer()} />
                         </View>
                     </View>
                     <Drawer.Section style={{flex: 1, marginTop: 50}} >

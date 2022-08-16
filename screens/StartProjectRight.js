@@ -5,6 +5,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import * as ImagePicker from 'expo-image-picker';
 import StartProject from './StartProject';
 import HomeScreen from './HomeScreen';
+import AddDevice from './AddDevice';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -37,8 +38,8 @@ const StartProjectRight = ({route, navigation}) => {
       <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.192}} />
       
       <TouchableOpacity style={{zIndex: 2}}>
-      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.265,right: windowWidth * 0.364, zIndex: 2, opacity: 0.7}}/>
-      <Entypo name="cross" size={30} color="white" style={{ top: windowHeight * 0.22, right: windowWidth * 0.35  ,zIndex: 2}} onPress={() => navigation.navigate('HomeScreen')} />
+      <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.265,right: windowWidth * 0.364, zIndex: 2, opacity: 0.7}} />
+      <Entypo name="cross" size={30} color="white" style={{ top: windowHeight * 0.22, right: windowWidth * 0.35  ,zIndex: 2}} onPress={() => navigation.navigate('AddDevice')} />
       </TouchableOpacity>
       
       <TouchableOpacity style={{zIndex:2}}>

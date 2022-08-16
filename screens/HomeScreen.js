@@ -10,6 +10,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import { useAuthentication } from '../hook/useAuthentication';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import StartProject from './StartProject';
+import StartProjectRight from './StartProjectRight';
 import MyProjects from './MyProjects';
 import Register from './Register';
 import Templates from './Templates';

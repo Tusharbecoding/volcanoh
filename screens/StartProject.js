@@ -4,6 +4,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ImagePicker from 'expo-image-picker';
 import StartProjectRight from './StartProjectRight';
+import DrawerContent from './DrawerContent';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { getAuth, signOut } from 'firebase/auth';
@@ -102,7 +103,7 @@ const StartProject = ({route, navigation}) => {
         height: 45,
         top: windowHeight * 0.045,
       }} />
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.42, top: windowHeight * 0.001}} onPress={() => signOut(auth)} />
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.42, top: windowHeight * 0.001}} onPress={() => navigation.openDrawer()} />
 
       <TouchableOpacity 
       style={[(rColor) ? styles.unselBtn : styles.selBtn, styles.leftBtn]}

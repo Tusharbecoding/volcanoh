@@ -3,17 +3,17 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import OnBoarding from './screens/OnBoarding';
-import Login from './screens/Login';
-import Register from './screens/Register';
-import SignIn from './screens/SignIn';
-import ForgotPassword from './screens/ForgotPassword';
-import ResetPassword from './screens/ResetPassword';
-import TotalError from './screens/TotalError';
-import HomeScreen from './screens/HomeScreen';
-import StartProject from './screens/StartProject';
-import StartProjectRight from './screens/StartProjectRight';
-import GalleryScreen from './screens/GalleryScreen';
+// import OnBoarding from './screens/OnBoarding';
+// import Login from './screens/Login';
+// import Register from './screens/Register';
+// import SignIn from './screens/SignIn';
+// import ForgotPassword from './screens/ForgotPassword';
+// import ResetPassword from './screens/ResetPassword';
+// import TotalError from './screens/TotalError';
+// import HomeScreen from './screens/HomeScreen';
+// import StartProject from './screens/StartProject';
+// import StartProjectRight from './screens/StartProjectRight';
+// import GalleryScreen from './screens/GalleryScreen';
 
 
 import RootNavigation from './Navigation';

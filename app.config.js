@@ -24,6 +24,7 @@ export default{
     ],
     "ios": {
       "supportsTablet": true,
+      "bundleIdentifier": "com.tusharbecoding.volcanoh"
     },
     "android": {
       "package": "com.tusharbecoding.volcanoh",

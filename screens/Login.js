@@ -1,4 +1,3 @@
-
 import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, Dimensions } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -25,6 +24,7 @@ const Login = ({navigation}) => {
   const windowHeight = Dimensions.get('window').height;
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest(
     {
+      androidClientId: '68240448112-3uujspok9l42fb27j6vh7b49ssna92u2.apps.googleusercontent.com',
       clientId: '68240448112-lr4ovq00kfe11o0fcjsrn41h05vd477s.apps.googleusercontent.com',
     },
     {

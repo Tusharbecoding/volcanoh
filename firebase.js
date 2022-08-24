@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+//import 'firebase/firestore';
+//import 'firebase/storage';
 import Constants from "expo-constants";
 
 

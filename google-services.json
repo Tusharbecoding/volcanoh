@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "68240448112",
+    "project_id": "volcanoh-3ca19",
+    "storage_bucket": "volcanoh-3ca19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68240448112:android:5ae48d1de56e8e23b8b2b5",
+        "android_client_info": {
+          "package_name": "com.tusharbecoding.volcanoh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68240448112-3uujspok9l42fb27j6vh7b49ssna92u2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tusharbecoding.volcanoh",
+            "certificate_hash": "5c0426531b2c17c41e7568b7d68d910da7e59ee9"
+          }
+        },
+        {
+          "client_id": "68240448112-lr4ovq00kfe11o0fcjsrn41h05vd477s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCX0-doQd9BrkJ1TIOSUpWZbwR3exFm-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68240448112-lr4ovq00kfe11o0fcjsrn41h05vd477s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

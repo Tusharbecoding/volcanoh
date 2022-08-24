@@ -15,7 +15,7 @@ import { DrawerContent } from '../screens/DrawerContent';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-function DrawerStack({navigation}) {
+export function DrawerStack({navigation}) {
   return (
     <Drawer.Navigator independent={true} screenOptions={{headerShown: false}} drawerContent = {(props) => <DrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={HomeScreen} />
@@ -29,7 +29,7 @@ function DrawerStack({navigation}) {
   )
 }
 
-export default function UserStack() {
+export default function UserStack({navigation}) {
   return (
     <NavigationContainer independent={true}>
       
@@ -43,3 +43,4 @@ export default function UserStack() {
     </NavigationContainer>
   );
 }
+

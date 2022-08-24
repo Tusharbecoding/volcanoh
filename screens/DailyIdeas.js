@@ -2,9 +2,10 @@ import React from 'react'
 import { View, Text, SafeAreaView, Image, Dimensions, SearchBar, TextInput, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import { useState } from 'react';
+import DrawerContent from './DrawerContent';
 //import { SearchBar } from 'react-native-elements';
 
-const DailyIdeas = () => {
+const DailyIdeas = ({navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   const [search, onChangeSearch] = React.useState();
@@ -21,7 +22,7 @@ const DailyIdeas = () => {
         }} 
       />
 
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{ bottom: windowHeight * 0.362, right: windowWidth * 0.42}} />
+      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{ bottom: windowHeight * 0.362, right: windowWidth * 0.42}} onPress={() => navigation.openDrawer()}/>
 
       <TextInput
                 style={{

@@ -15,7 +15,7 @@ export default{
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    
+    "plugins":["react-native-imglysdk"],
     "updates": {
       "fallbackToCacheTimeout": 0
     },

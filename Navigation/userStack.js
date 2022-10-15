@@ -10,6 +10,7 @@ import RateVolcanoh from '../screens/RateVolcanoh';
 import PrivatePolicy from '../screens/PrivatePolicy';
 import StartProjectRight from '../screens/StartProjectRight';
 import GalleryScreen from '../screens/GalleryScreen';
+import ApplyEffect from '../screens/ApplyEffect'
 import { DrawerContent } from '../screens/DrawerContent';
 
 const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ export function DrawerStack({navigation}) {
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="StartProject" component={StartProject} />
       <Drawer.Screen name="StartProjectRight" component={StartProjectRight} />
+      <Drawer.Screen name="ApplyEffect" component={ApplyEffect} />
       <Drawer.Screen name="AddDevice" component={AddDevice} />
       <Drawer.Screen name="Help" component={Help} />
       <Drawer.Screen name="RateVolcanoh" component={RateVolcanoh} />
@@ -38,6 +40,7 @@ export default function UserStack({navigation}) {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="StartProject" component={StartProject} />
         <Stack.Screen name="StartProjectRight" component={StartProjectRight} />
+        <Stack.Screen name="ApplyEffect" component={ApplyEffect} />
         <Stack.Screen name="GalleryScreen" component={GalleryScreen} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -3,6 +3,9 @@ import { View, Text, SafeAreaView, Image, Dimensions } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import DrawerContent from './DrawerContent';
 
+
+
+
 const Templates = ({navigation}) => {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;

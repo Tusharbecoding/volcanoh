@@ -4,6 +4,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as ImagePicker from 'expo-image-picker';
 import StartProjectRight from './StartProjectRight';
+import ApplyEffect from './ApplyEffect';
 import DrawerContent from './DrawerContent';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -40,6 +41,7 @@ const StartProject = ({route, navigation}) => {
       setImage(result.uri);
       navigation.navigate('StartProjectRight', {imageData: result.uri});
     }
+    
   };
 
   const styles = StyleSheet.create({

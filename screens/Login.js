@@ -25,12 +25,11 @@ const Login = ({navigation}) => {
   const [request, response, promptAsync] = Google.useIdTokenAuthRequest(
     {
       androidClientId: '68240448112-3uujspok9l42fb27j6vh7b49ssna92u2.apps.googleusercontent.com',
-      clientId: '68240448112-lr4ovq00kfe11o0fcjsrn41h05vd477s.apps.googleusercontent.com',
+      expoClientId: '68240448112-lr4ovq00kfe11o0fcjsrn41h05vd477s.apps.googleusercontent.com',
     },
-    {
-      behavior: 'web',
-    }
+    
   );
+
 
   React.useEffect(() => {
     if (response?.type === 'success') {
@@ -41,6 +40,7 @@ const Login = ({navigation}) => {
       signInWithCredential(auth, credential);
     }
   }, [response]);
+  
     return (
         <SafeAreaView
             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

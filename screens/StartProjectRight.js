@@ -81,11 +81,12 @@ const StartProjectRight = ({route, navigation}) => {
       <View style={styles.header}>
         <Octicons name="three-bars" size={27} onPress={() => navigation.openDrawer()} />
         <Image source={require('../assets/logo.png')} style={styles.title}/>
+        <Text></Text>
       </View>
       <View style={styles.mainImageView}>
         <View style={styles.crossView}>
           <View style={styles.crossGroup}>
-            <Entypo name="cross" size={32} color="white" onPress={() => navigation.navigate('HomeScreen')} style={styles.cross}/>
+            <Entypo name="cross" size={32} color="white" onPress={() => navigation.navigate('StartProject')} style={styles.cross}/>
           </View>
         </View>
         <View style={styles.filterMenu}>
@@ -204,12 +205,12 @@ export const styles = StyleSheet.create({
     marginTop: 70,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   title: {
     display: 'flex',
     width: 160,
     height: 45,
-    marginLeft: width * 0.2,
   },
   mainImageView: {
     display: 'flex',

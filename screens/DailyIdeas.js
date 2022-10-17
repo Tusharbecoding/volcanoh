@@ -1,47 +1,44 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, SearchBar, TextInput, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import { useState } from 'react';
 import DrawerContent from './DrawerContent';
 //import { SearchBar } from 'react-native-elements';
 
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 const DailyIdeas = ({navigation}) => {
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
-  const [search, onChangeSearch] = React.useState();
+  
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <ScrollView 
-    // style={{flex: 1,justifyContent: 'center', alignItems: 'center'}}
-    showsVerticalScrollIndicator={false}
-    contentContainerStyle={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Image source={require('../assets/logo.png')} style={{
-        width: 138,
-        height: 45,
-        bottom: windowHeight * 0.312,
-        }} 
-      />
-
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{ bottom: windowHeight * 0.362, right: windowWidth * 0.42}} onPress={() => navigation.openDrawer()}/>
-
-      <TextInput
-                style={{
-                    bottom: windowHeight * 0.312,
-                    height: 35,
-                    borderRadius: 8,
-                    padding: 10,
-                    backgroundColor: 'rgba(214, 214, 214, 0.6)',
-                    width: windowWidth * 0.9,
-                }}
-                autoCapitalize="none"
-                placeholderTextColor={'rgba(16, 16, 16, 0.8)'}
-                placeholder="Find your collection"
-                onChangeText={onChangeSearch}
-                value={search} 
-              />
-      </ScrollView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Octicons name="three-bars" size={27} color="black" onPress={() => navigation.openDrawer()}/>
+        <Image source={require('../assets/logo.png')} style={styles.title}/>
+        <Text></Text>
+      </View>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: height,
+    width: width,
+  },
+  header: {
+    display: 'flex',
+    padding: 10,
+    marginTop: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    display: 'flex',
+    width: 160,
+    height: 45,
+  }
+})
+
 
 export default DailyIdeas

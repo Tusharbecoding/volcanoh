@@ -101,7 +101,7 @@ const StartProject = ({route, navigation}) => {
     
     <Image source={require('../assets/logo.png')} style={{
         alignSelf: 'center',
-        width: 138,
+        width: 160,
         height: 45,
         top: windowHeight * 0.045,
       }} />

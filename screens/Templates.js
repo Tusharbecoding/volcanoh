@@ -1,27 +1,44 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import DrawerContent from './DrawerContent';
 
 
 
 
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 const Templates = ({navigation}) => {
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
+  
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      
-      <Image source={require('../assets/logo.png')} style={{
-        width: 138,
-        height: 45,
-        bottom: windowHeight * 0.338,
-        }} 
-      />
-
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{ bottom: windowHeight * 0.387, right: windowWidth * 0.42}} onPress={() => navigation.openDrawer()} />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Octicons name="three-bars" size={27} color="black" onPress={() => navigation.openDrawer()}/>
+        <Image source={require('../assets/logo.png')} style={styles.title}/>
+        <Text></Text>
+      </View>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: height,
+    width: width,
+  },
+  header: {
+    display: 'flex',
+    padding: 10,
+    marginTop: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    display: 'flex',
+    width: 160,
+    height: 45,
+  }
+})
 
 export default Templates

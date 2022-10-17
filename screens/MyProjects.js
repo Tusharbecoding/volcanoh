@@ -1,38 +1,82 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import DrawerContent from './DrawerContent';
 
-
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 const MyProjects = ({navigation}) => {
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
+  
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      
-      <Image source={require('../assets/logo.png')} style={{
-        width: 138,
-        height: 45,
-        bottom: windowHeight * 0.338,
-        }} 
-      />
-
-      <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{ bottom: windowHeight * 0.387, right: windowWidth * 0.42}} onPress={() => navigation.openDrawer()}/>
-
-      <Image 
-      style= {styles.image}
-      source={{
-        uri: 'https://firebasestorage.googleapis.com/v0/b/volcanoh-3ca19.appspot.com/o/images%2F12efe2b6-ec4e-4ebc-86a7-ac135d21436c?alt=media&token=18033535-35a1-4a6f-9126-6cae556bd0b9'
-      }}/>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Octicons name="three-bars" size={27} color="black" onPress={() => navigation.openDrawer()}/>
+        <Image source={require('../assets/logo.png')} style={styles.title}/>
+        <Text></Text>
+      </View>
+      <ScrollView>
+      <View style={styles.gridContainer}>
+        <View style={styles.imageRow}>
+          
+        <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/volcanoh-3ca19.appspot.com/o/images%2Ff9f4821b-e769-42c1-8b5f-5b29b4c1b465?alt=media&token=82db9d74-6d4d-404c-a063-e164c5174289'}} style={styles.image}/>
+        <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/volcanoh-3ca19.appspot.com/o/images%2F561377cd-59f1-47c3-a2a7-a79717e7bbba?alt=media&token=00ae5db1-9d54-4a98-b5bd-89345492e69f'}} style={styles.image} />
+        <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/volcanoh-3ca19.appspot.com/o/images%2Fb570b267-5a8f-45de-9b99-7643bd8efbec?alt=media&token=5477e80b-4257-49bd-bcf4-59dc21a89358'}} style={styles.image} />
+          
+        </View>
+        <View style={styles.imageRow}>
+            <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/volcanoh-3ca19.appspot.com/o/images%2Ff9f4821b-e769-42c1-8b5f-5b29b4c1b465?alt=media&token=82db9d74-6d4d-404c-a063-e164c5174289'}} style={styles.image}/>
+            <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/volcanoh-3ca19.appspot.com/o/images%2F561377cd-59f1-47c3-a2a7-a79717e7bbba?alt=media&token=00ae5db1-9d54-4a98-b5bd-89345492e69f'}} style={styles.image} />
+            <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/volcanoh-3ca19.appspot.com/o/images%2Fb570b267-5a8f-45de-9b99-7643bd8efbec?alt=media&token=5477e80b-4257-49bd-bcf4-59dc21a89358'}} style={styles.image} />
+        </View>
+        <View style={styles.imageRow}>
+            <Image source={require('../assets/illustration2.png')} style={styles.image} />
+            <Image source={require('../assets/illustration2.png')} style={styles.image} />
+            <Image source={require('../assets/illustration2.png')} style={styles.image} />
+        </View>
+      </View>
+      </ScrollView>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    height: height,
+    width: width,
+  },
+  header: {
+    display: 'flex',
+    padding: 10,
+    marginTop: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    display: 'flex',
+    width: 160,
+    height: 45,
+  },
+  gridContainer: {
+    display: 'flex',
+    
+    height: height,
+  },
+  imageRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    
+    height: height * 0.3,
+    margin: 2,
+  },
   image: {
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
+    display: 'flex',
+    height: height * 0.3,
+    width: 125,
+    backgroundColor: 'brown',
+    marginLeft: 5,
+    marginRight: 5,
+    borderRadius: 10,
   }
 })
 

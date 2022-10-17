@@ -17,16 +17,7 @@ import DrawerStack from '../Navigation/userStack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import DrawerContent from './DrawerContent';
-import {
-  Grayscale,
-  Sepia,
-  Tint,
-  ColorMatrix,
-  concatColorMatrices,
-  invert,
-  contrast,
-  saturate
-} from 'react-native-color-matrix-image-filters'
+
 // import { PIXI } from 'expo-pixi';
 
 
@@ -37,6 +28,8 @@ const height = Dimensions.get('window').height;
 const StartProjectRight = ({route, navigation}) => {
 
   const [elementVisible, setElementVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [stickerVisible, setStickerVisible] = useState(false);
   const { imageData } = route.params;
   const [uploading, setUploading] = useState(false);
   const uploadImage = async () => {
@@ -82,97 +75,17 @@ const StartProjectRight = ({route, navigation}) => {
   )
 }
 
-  // return (
-  //   <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    
-  //     <Image source={require('../assets/logo.png')} style={{
-  //       alignSelf: 'center',
-  //       width: 138,
-  //       height: 45,
-  //       top: windowHeight * 0.24,
-  //       }} 
-  //     />
-  //     <Octicons name="three-bars" size={25} color="rgba(16, 16, 16, 1)" style={{right: windowWidth * 0.4, top: windowHeight * 0.192}} onPress={() => navigation.openDrawer()} />
-      
-  //     <TouchableOpacity style={{zIndex: 2}} >
-  //     <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.265,right: windowWidth * 0.364, zIndex: 2, opacity: 0.7}} />
-  //     <Entypo name="cross" size={30} color="white" style={{ top: windowHeight * 0.22, right: windowWidth * 0.35  ,zIndex: 2}} onPress={() => navigation.navigate('HomeScreen')} />
-  //     </TouchableOpacity>
-      
-  //     <TouchableOpacity style={{zIndex:2}} onPress={() => navigation.navigate('ApplyEffect')}>
-  //     <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.175, left:windowWidth * 0.11 ,zIndex: 2, opacity: 0.7}}/>
-  //     <Image source={require('../assets/ticon.png')} style={{top: windowHeight * 0.141, left:windowWidth * 0.147 ,zIndex: 2}}/></TouchableOpacity>
-      
-  //     <TouchableOpacity style={{zIndex:2}}>
-  //     <Image source={require('../assets/improve.png')} style={{top: windowHeight * 0.107, left: windowWidth * 0.23 ,zIndex: 2}}/></TouchableOpacity>
-      
-      
-  //     <TouchableOpacity style={{"zIndex":2}}>
-  //     <Image source={require('../assets/text.png')} style={{top: windowHeight * 0.056, left: windowWidth * 0.35,zIndex: 2, opacity: 0.7}}/>
-  //     <Image source={require('../assets/options.png')} style={{top: windowHeight * 0.015, left: windowWidth * 0.372 ,zIndex: 2}}/>
-  //     </TouchableOpacity>
-      
-      
-  //     {imageData && <Image source={{ uri: imageData }} style={{
-  //        bottom: windowHeight * 0.06, resizeMode: 'stretch',
-  //        width: windowWidth * 0.9, height: windowHeight * 0.78, borderRadius: 20 }} />}
-  //     <TouchableOpacity style={{width: "80%",
-  //       borderRadius: 20,
-  //       width: 136,
-  //       height: 46,
-  //       alignItems: "center",
-  //       justifyContent: "center",
-  //       backgroundColor: "rgba(181, 56, 62, 1)",
-  //       bottom: windowHeight * 0.15,
-  //       left: windowWidth * 0.24,
-  //       zIndex: 2,
-  //     }}
-  //     onPress={uploadImage}
-  //     >
-  //     <Text style={{color:'white', fontWeight: '600', fontSize: 15}}>Publish</Text></TouchableOpacity>
-  //     <TouchableOpacity 
-  //     style={{
-  //       bottom: windowWidth * 0.22,
-  //       right: windowWidth * 0.27,
-  //       paddingTop: 10,
-  //       paddingBottom: 10,
-  //       paddingLeft: windowWidth * 0.2,  
-  //       paddingRight: windowWidth * 0.27,
-  //       borderTopWidth:0,
-  //       borderRightWidth:0,
-  //       borderWidth: 1,
-  //     }}>
-  //       <Text style={{color: 'black',}}>Left</Text>
-  //     </TouchableOpacity>
-  //     <TouchableOpacity 
-  //     style={{
-  //       bottom: windowWidth * 0.326,
-  //       left: windowWidth * 0.27,
-  //       paddingTop: 10,
-  //       paddingBottom: 10,
-  //       paddingLeft: windowWidth * 0.27,  
-  //       paddingRight: windowWidth * 0.2,
-  //       borderTopWidth:0,
-  //       borderLeftWidth:0,
-  //       borderWidth: 0,
-  //     }}>
-  //       <Text style={{color: 'rgba(174, 174, 178, 1)',}}>Right</Text>
-  //     </TouchableOpacity>
-      
-      
-  //   </SafeAreaView>
-    
-  // )
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Octicons name="three-bars" size={30} onPress={() => navigation.openDrawer()} />
+        <Octicons name="three-bars" size={27} onPress={() => navigation.openDrawer()} />
         <Image source={require('../assets/logo.png')} style={styles.title}/>
       </View>
       <View style={styles.mainImageView}>
         <View style={styles.crossView}>
           <View style={styles.crossGroup}>
-            <Entypo name="cross" size={35} color="white" onPress={() => navigation.navigate('HomeScreen')} style={styles.cross}/>
+            <Entypo name="cross" size={32} color="white" onPress={() => navigation.navigate('HomeScreen')} style={styles.cross}/>
           </View>
         </View>
         <View style={styles.filterMenu}>
@@ -180,17 +93,26 @@ const StartProjectRight = ({route, navigation}) => {
           <View style={styles.crossGroup} >
             <Image source={require('../assets/ticon.png')} />
           </View>
-          
-          <View style={styles.crossGroup}>
+          <TouchableOpacity onPress={() => setStickerVisible(!stickerVisible)}>
+          <View style={styles.crossGroup} >
             <Image source={require('../assets/sticker.png')} />
           </View>
-          <TouchableOpacity onPress={() => setElementVisible(!elementVisible)}>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
           <View style={styles.crossGroup}>
             <Image source={require('../assets/options2.png')} />
           </View>
           </TouchableOpacity>
+
         </View>
-        
+        {modalVisible ? (<View style={styles.optionModal}>
+          <TouchableOpacity style={styles.optionFilter}>
+            <Text style={styles.optionText}>Filters</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.optionFilter} onPress={() => setElementVisible(!elementVisible)}>
+            <Text style={styles.optionText}>Effects</Text>
+          </TouchableOpacity>
+        </View>) : null}
         {imageData && <Image source={{ uri: imageData }} style={styles.mainImage} />}
         <TouchableOpacity onPress={uploadImage}>
           <View style={styles.publishContainer}>
@@ -207,7 +129,61 @@ const StartProjectRight = ({route, navigation}) => {
         </View>
       </View>
       {elementVisible ? (<View style={styles.filterModal}>
-
+        <View style={styles.filterList}>
+          <ScrollView horizontal={true}>
+            <View style={styles.filter1}>
+              {imageData && <Image source={{ uri: imageData }} style={styles.filterImage}/>}
+              <Text style={styles.filterText}>Original</Text>
+            </View>
+            <View style={styles.filter1}>
+              {imageData && <Image source={{ uri: imageData }} style={styles.filterImage}/>}
+              <Text style={styles.filterText}>Original</Text>
+            </View>
+            <View style={styles.filter1}>
+              {imageData && <Image source={{ uri: imageData }} style={styles.filterImage}/>}
+              <Text style={styles.filterText}>Original</Text>
+            </View>
+            <View style={styles.filter1}>
+              {imageData && <Image source={{ uri: imageData }} style={styles.filterImage}/>}
+              <Text style={styles.filterText}>Original</Text>
+            </View>
+          </ScrollView>
+        </View>
+      </View>) : null}
+      {stickerVisible ? (<View style={styles.stickerMenu}>
+        <View style={styles.stickerList}>
+          
+            
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/brezel.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/drinks.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/flash.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/gift.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/heart.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/nut.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/off.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/sale.png')} />
+            </View>
+            <View style = {styles.sticker1}>
+              <Image source={require('../assets/stickers/up.png')} />
+            </View>
+            
+          
+        </View>
       </View>) : null}
     </View>
   )
@@ -231,13 +207,12 @@ export const styles = StyleSheet.create({
   },
   title: {
     display: 'flex',
-    width: 180,
-    height: 50,
+    width: 160,
+    height: 45,
     marginLeft: width * 0.2,
   },
   mainImageView: {
     display: 'flex',
-    backgroundColor: 'blue',
     margin: 20,
     height: height * 0.7,
     borderRadius: 20,
@@ -256,8 +231,8 @@ export const styles = StyleSheet.create({
     display: 'flex',
     backgroundColor: 'gray',
     borderRadius: 40,
-    height: 45,
-    width: 45,
+    height: 42,
+    width: 42,
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 2,
@@ -315,6 +290,7 @@ export const styles = StyleSheet.create({
   },
   textRight: {
     fontSize: 18,
+    color: 'gray',
   },
   filterModal: {
     display: 'flex',
@@ -323,5 +299,80 @@ export const styles = StyleSheet.create({
     width: width,
     height: height * 0.25,
     backgroundColor: 'rgba(16, 16, 16, 0.9)', 
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  filterList: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: height * 0.2,
+    width: width,
+    alignItems: 'center',
+  },
+  filter1: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: 130,
+    width: 130,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  filterImage: {
+    height: 130,
+    width: 130,
+  },
+  filterText: {
+    display: 'flex',
+    color: 'white', 
+    fontSize: 18,  
+    position: 'absolute',
+    bottom: 0,
+    left: '25%',
+  },
+  optionModal: {
+    display: 'flex',
+    position: 'absolute',
+    backgroundColor: 'gray',
+    height: 80,
+    width: 90,
+    zIndex: 2,
+    right: 0,
+    margin: 10,
+    marginTop: 70,
+    borderRadius: 10,
+    padding: 10,
+  },
+  optionFilter: {
+    display: 'flex',
+    margin: 5,
+  },
+  optionText: {
+    color: 'white',
+  },
+  stickerMenu: {
+    display: 'flex',
+    position: 'absolute',
+    bottom: 0,    
+    width: width,
+    height: height * 0.4,
+    backgroundColor: 'rgba(16, 16, 16, 0.9)', 
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  stickerList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    height: height * 0.4,
+    width: width,
+
+  },
+  sticker1: {
+    display: 'flex',
+    height: 110,
+    width: 110,
+    marginLeft: 10,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center', 
   }
 })

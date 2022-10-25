@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet, StatusBar } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import DrawerContent from './DrawerContent';
 
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   header: {
     display: 'flex',
     padding: 10,
-    marginTop: 70,
+    paddingTop: StatusBar.currentHeight + 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

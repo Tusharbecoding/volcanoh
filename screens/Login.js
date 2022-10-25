@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, Dimensions } from 'react-native';
+import { SafeAreaView, Text, View, Image, Button, TouchableOpacity, Dimensions, StatusBar } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Register from './Register';
@@ -43,7 +43,7 @@ const Login = ({navigation}) => {
   
     return (
         <SafeAreaView
-            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: StatusBar.currentHeight, }} >
             <Image source={require('../assets/logo.png')} style={{
                 alignSelf: 'center',
                 width: 125,

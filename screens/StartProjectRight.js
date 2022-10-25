@@ -1,12 +1,9 @@
 import 'react-native-get-random-values';
 import React, { useEffect, useState } from 'react'
-import { View, Text, SafeAreaView, Image, Picker, Dimensions, Button, TouchableOpacity, ScrollView,Modal, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, Image, Picker, Dimensions, Button, TouchableOpacity, ScrollView,Modal, StyleSheet, StatusBar, ActivityIndicator, Alert } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import * as ImagePicker from 'expo-image-picker';
-// import {app} from '../firebase';
-// import {firebase} from 'firebase/app';
-// import { firebaseConfig } from '../firebaseconfig';
 import { firebase } from '../firebaseconfig';
 import { v4 as uuidv4 } from 'uuid';
 import StartProject from './StartProject';
@@ -18,7 +15,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import DrawerContent from './DrawerContent';
 
-// import { PIXI } from 'expo-pixi';
+
 
 
 const width = Dimensions.get('window').width;
@@ -27,6 +24,7 @@ const height = Dimensions.get('window').height;
 
 const StartProjectRight = ({route, navigation}) => {
 
+  
   const [elementVisible, setElementVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [stickerVisible, setStickerVisible] = useState(false);
@@ -47,11 +45,6 @@ const StartProjectRight = ({route, navigation}) => {
       xhr.send(null);
     });
 
-    // const [effect, setEffect] = useState('original');
-    // const effectOnPress = (effect) => {
-    //   setEffect(effect);
-    // }
-
     const ref = firebase.storage().ref().child(`images/${uuidv4()}`);
     const snapshot = await ref.put(blob);
 
@@ -64,16 +57,13 @@ const StartProjectRight = ({route, navigation}) => {
       blob.close()  
       return
     },
-    () => {
-      snapshot.snapshot.ref.getDownloadURL().then((url) => {
-        setUploading(false);
-        console.log("download url: " + url);
-        blob.close()
-        return url;
-    })
-  },
-  )
-}
+    Alert.alert(
+      'Image Uploaded',
+      navigation.navigate('StartProject')
+    )
+    )
+    
+  }
 
   
   return (
@@ -115,11 +105,11 @@ const StartProjectRight = ({route, navigation}) => {
           </TouchableOpacity>
         </View>) : null}
         {imageData && <Image source={{ uri: imageData }} style={styles.mainImage} />}
-        <TouchableOpacity onPress={uploadImage}>
+        {!uploading ? <TouchableOpacity onPress={uploadImage}>
           <View style={styles.publishContainer}>
             <Text style={styles.content}>Publish</Text>  
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity>: console.log("uploading")}
       </View>
       <View style={styles.footerContainer}>
         <View style={styles.footerLeft}>
@@ -152,6 +142,7 @@ const StartProjectRight = ({route, navigation}) => {
         </View>
       </View>) : null}
       {stickerVisible ? (<View style={styles.stickerMenu}>
+        <ScrollView>
         <View style={styles.stickerList}>
           
             
@@ -185,6 +176,7 @@ const StartProjectRight = ({route, navigation}) => {
             
           
         </View>
+        </ScrollView>
       </View>) : null}
     </View>
   )
@@ -202,7 +194,7 @@ export const styles = StyleSheet.create({
     
     display: 'flex',
     padding: 10,
-    marginTop: 70,
+    paddingTop: StatusBar.currentHeight + 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -266,9 +258,11 @@ export const styles = StyleSheet.create({
   footerContainer: {
     display: 'flex',
     width: width,
+    position: 'absolute',
     height: height * 0.08,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    bottom: height * 0.01,
   },
   footerLeft: {
     display: 'flex',
@@ -363,9 +357,10 @@ export const styles = StyleSheet.create({
   stickerList: {
     display: 'flex',
     flexWrap: 'wrap',
-    height: height * 0.4,
+    height: height * 0.6,
     width: width,
-
+    padding: 10,
+    
   },
   sticker1: {
     display: 'flex',

@@ -5,15 +5,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useState } from 'react';
+import { firebase } from '../firebaseconfig';
 
 const auth = getAuth();
 
-const forgotPassword = (Email) => {
+const forgotPassword = (email) => {
 
-    console.log("reset email sent to " + Email);
-    sendPasswordResetEmail(auth, Email, null)
+    console.log("reset email sent to " + email);
+    firebase.auth().sendPasswordResetEmail(email)
         .then(() => {
-            alert("reset email sent to " + Email);
+            alert("reset email sent");
         })
         .catch(function (e) {
             console.log(e);
@@ -26,10 +27,10 @@ const ForgotPassword = ({navigation}, Email) => {
     const [email, onChangeEmail] = React.useState();
     const forgotPassword = (Email) => {
 
-        console.log("reset email sent to " + Email);
-        sendPasswordResetEmail(auth, Email, null)
+        console.log("reset email sent " + Email);
+        firebase.auth().sendPasswordResetEmail(Email)
             .then(() => {
-                alert("reset email sent to " + Email);
+                alert("reset email sent");
             })
             .catch(function (e) {
                 console.log(e);

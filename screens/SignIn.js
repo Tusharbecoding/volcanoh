@@ -87,7 +87,7 @@ const SignIn = ({navigation}) => {
               />
             <TouchableOpacity
             style={{
-                left: windowWidth * 0.54,
+                left: windowWidth * 0.5,
                 bottom: windowHeight * 0.2,
             }}
             onPress={() => navigation.navigate('ForgotPassword')}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet, ScrollView, StatusBar } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import DrawerContent from './DrawerContent';
 
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   header: {
     display: 'flex',
     padding: 10,
-    marginTop: 70,
+    paddingTop: StatusBar.currentHeight + 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -59,20 +59,20 @@ const styles = StyleSheet.create({
   },
   gridContainer: {
     display: 'flex',
-    
+    backgroundColor: 'blue',
     height: height,
+    width: width,
   },
   imageRow: {
     display: 'flex',
     flexDirection: 'row',
-    
     height: height * 0.3,
     margin: 2,
   },
   image: {
     display: 'flex',
     height: height * 0.3,
-    width: 125,
+    width: 116,
     backgroundColor: 'brown',
     marginLeft: 5,
     marginRight: 5,

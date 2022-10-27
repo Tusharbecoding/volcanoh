@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet, StatusBar, TextInput, Keyboard } from 'react-native'
+import { View, Text, SafeAreaView, Image, Dimensions, StyleSheet, StatusBar, TextInput, Keyboard, ScrollView } from 'react-native'
 import Octicons from 'react-native-vector-icons/Octicons';
 import { useState } from 'react';
 import DrawerContent from './DrawerContent';
@@ -8,8 +8,10 @@ import { Feather, Entypo } from "@expo/vector-icons";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const DailyIdeas = ({navigation, clicked, searchPhrase, setSearchPhrase, setClicked}) => {
-  
+const DailyIdeas = ({navigation}) => {
+
+  const [text, onChangeText] = React.useState();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -17,45 +19,20 @@ const DailyIdeas = ({navigation, clicked, searchPhrase, setSearchPhrase, setClic
         <Image source={require('../assets/logo.png')} style={styles.title}/>
         <Text></Text>
       </View>
-      <View
-        style={
-          clicked
-            ? styles.searchBar__clicked
-            : styles.searchBar__unclicked
-        }
-      >
-      <Feather
-      name="search"
-      size={20}
-      color="black"
-      style={{ marginLeft: 1 }}
-      />
-      <TextInput
-          style={styles.input}
-          placeholder="Search"
-          value={searchPhrase}
-          onChangeText={setSearchPhrase}
-          onFocus={() => {
-            setClicked(true);
-          }}
-        />
-      {clicked && (
-          <Entypo name="cross" size={20} color="black" style={{ padding: 1 }} onPress={() => {
-              setSearchPhrase("")
-          }}/>
-      )}
+      <View style={styles.searchBarView}>
+        <Feather name="search" size={30} color="black" />
+        <TextInput autoCapitalize="none" onChangeText={onChangeText} value={text} style={styles.searchBar}/>
       </View>
-      {clicked && (
-        <View>
-          <Button
-            title="Cancel"
-            onPress={() => {
-              Keyboard.dismiss();
-              setClicked(false);
-            }}
-          ></Button>
+      <View style={styles.ideasContainer}>
+        <ScrollView>
+        <View style={styles.cardContainer}>
+          <View style={styles.tagView}>
+            <Text>Promote</Text>
+          </View>
+          <Text>You added a new brownie recipe, how about we promote it?</Text>
         </View>
-      )}
+        </ScrollView>
+      </View>
     </View>
   )
 }
@@ -78,28 +55,39 @@ const styles = StyleSheet.create({
     width: 160,
     height: 45,
   },
-  searchBar__unclicked: {
-    padding: 10,
-    flexDirection: "row",
-    width: "95%",
-    backgroundColor: "#d9dbda",
-    borderRadius: 15,
-    alignItems: "center",
+  searchBarView: {
+    display: 'flex',
+    flexDirection: 'row',
+    margin: 20,
+    height: 50,
+    alignItems: 'center',
+    borderColor: 'rgba(236, 236, 236, 1)',
+    borderWidth: 1,
+    borderRadius: 4,
+    justifyContent: 'center',
   },
-  searchBar__clicked: {
-    padding: 10,
-    flexDirection: "row",
-    width: "80%",
-    backgroundColor: "#d9dbda",
-    borderRadius: 15,
-    alignItems: "center",
-    justifyContent: "space-evenly",
-  },
-  input: {
+  searchBar: {
+    display: 'flex',
+    width: width - 60,
+    height: 40,
     fontSize: 20,
-    marginLeft: 10,
-    width: "90%",
+    paddingLeft: 5,
   },
+  ideasContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: height,
+  },
+  cardContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: 'rgba(118, 118, 128, 0.12)',
+    flexWrap: 'wrap',
+    height: height * 0.2,
+    margin: 20,
+    padding: 10,
+    borderRadius: 10,
+  }
 })
 
 

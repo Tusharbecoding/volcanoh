@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
   },
   gridContainer: {
     display: 'flex',
-    backgroundColor: 'blue',
     height: height,
     width: width,
   },

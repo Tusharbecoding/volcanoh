@@ -4,7 +4,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import { useState } from 'react';
 import DrawerContent from './DrawerContent';
 //import { SearchBar } from 'react-native-elements';
-import { Feather, Entypo } from "@expo/vector-icons";
+import { Feather, Entypo, MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -23,16 +23,31 @@ const DailyIdeas = ({navigation}) => {
         <Feather name="search" size={30} color="black" />
         <TextInput autoCapitalize="none" onChangeText={onChangeText} value={text} style={styles.searchBar}/>
       </View>
-      <View style={styles.ideasContainer}>
-        <ScrollView>
-        <View style={styles.cardContainer}>
-          <View style={styles.tagView}>
-            <Text>Promote</Text>
+      <ScrollView>
+        <View style={styles.ideasContainer}>
+          <View style={styles.cardContainer}>
+            <View style={styles.tagView}>
+              <Feather name="tag" size={16} color="white" />
+              <Text style={{fontSize: 14, color: 'white', paddingLeft: 5}}>PROMOTE</Text>
+            </View>
+            <Text style={{paddingTop: 15, fontSize: 16}}>You added a new brownie recipe, how about we promote it?</Text>
           </View>
-          <Text>You added a new brownie recipe, how about we promote it?</Text>
+          <View style={styles.cardContainerDaily}>
+            <View style={styles.tagView}>
+              <MaterialIcons name="local-fire-department" size={16} color="white" />
+              <Text style={{fontSize: 14, color: 'white', paddingLeft: 5}}>DAILY IDEA</Text>
+            </View>
+            <Text style={{paddingTop: 15, fontSize: 16,}}>Yesterday you had less than average people walk in, into the store, let's try incentivising them with a sale.</Text>
+          </View>
+          <View style={styles.cardContainerDaily}>
+            <View style={styles.tagView}>
+              <MaterialCommunityIcons name="power-plug-outline" size={16} color="white" />
+              <Text style={{fontSize: 13, color: 'white', paddingLeft: 5}}>BANNER IDEA</Text>
+            </View>
+            <Text style={{paddingTop: 15, fontSize: 16}}>We ended up wasting 2 chocolate cakes yesterday and they will expire today, want to put them on sale? </Text>
+          </View>
         </View>
-        </ScrollView>
-      </View>
+      </ScrollView>
     </View>
   )
 }
@@ -58,7 +73,9 @@ const styles = StyleSheet.create({
   searchBarView: {
     display: 'flex',
     flexDirection: 'row',
-    margin: 20,
+    margin: 10,
+    marginRight: 20,
+    marginLeft: 20,
     height: 50,
     alignItems: 'center',
     borderColor: 'rgba(236, 236, 236, 1)',
@@ -68,14 +85,14 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     display: 'flex',
-    width: width - 60,
+    width: width - 80,
     height: 40,
     fontSize: 20,
     paddingLeft: 5,
   },
   ideasContainer: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     height: height,
   },
   cardContainer: {
@@ -85,9 +102,29 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     height: height * 0.2,
     margin: 20,
-    padding: 10,
+    padding: 26,
     borderRadius: 10,
-  }
+  },
+  tagView: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: 'rgba(58, 58, 60, 1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 115,
+    height: 30,
+    borderRadius: 6,
+  },
+  cardContainerDaily: {
+    display: 'flex',
+    flexDirection: 'row',
+    backgroundColor: 'rgba(118, 118, 128, 0.12)',
+    flexWrap: 'wrap',
+    height: height * 0.25,
+    margin: 20,
+    padding: 26,
+    borderRadius: 10,
+  },
 })
 
 
